@@ -22,12 +22,16 @@ app.use(compression());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
+app.use("/", router());
+
 const server = http.createServer(app);
 
 app.get("/", (req: Request, res: Response) => {
-  res.render("index", { text: "World" });
+  //res.render("index", { text: "World" });
   //res.download("src/index.ts",);
 });
+
+app.use(express.static(__dirname));
 
 server.listen(8080, () => {
   console.log("Server running in http://localhost:8080/");
@@ -40,5 +44,3 @@ mongoose.connect(MONGO_URL);
 mongoose.connection.on("error", (error: Error) => {
   console.error(error);
 });
-
-app.use("/", router());
