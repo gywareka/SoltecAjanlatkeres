@@ -6,9 +6,10 @@ import compression from "compression";
 import cors from "cors";
 import "dotenv/config";
 import mongoose, { Error } from "mongoose";
+import router from "./router";
 
 const app: Express = express();
-const router: Router = express.Router();
+//const router: Router = express.Router();
 
 app.set("view engine", "ejs");
 
