@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express, Request, Response } from "express";
 import http from "http";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -6,8 +6,11 @@ import compression from "compression";
 import cors from "cors";
 import "dotenv/config";
 import mongoose, { Error } from "mongoose";
+import router from "./router";
 
-const app = express();
+const app: Express = express();
+
+app.set("view engine", "ejs");
 
 app.use(
   cors({
@@ -21,6 +24,11 @@ app.use(bodyParser.json());
 
 const server = http.createServer(app);
 
+app.get("/", (req: Request, res: Response) => {
+  res.render("index", { text: "World" });
+  //res.download("src/index.ts",);
+});
+
 server.listen(8080, () => {
   console.log("Server running in http://localhost:8080/");
 });
@@ -32,3 +40,5 @@ mongoose.connect(MONGO_URL);
 mongoose.connection.on("error", (error: Error) => {
   console.error(error);
 });
+
+app.use("/", router());
