@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, Router } from "express";
 import http from "http";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -8,6 +8,7 @@ import "dotenv/config";
 import mongoose, { Error } from "mongoose";
 
 const app: Express = express();
+const router: Router = express.Router();
 
 app.set("view engine", "ejs");
 
@@ -24,8 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", express.static("public"));
 
-// This seems to break the page
-//app.use("/", router());
+app.use("/", router);
 
 const server = http.createServer(app);
 
@@ -43,6 +43,7 @@ server.listen(PORT, () => {
 });
 
 const MONGO_URL = process.env.MONGODB_CONNECTION_STRING;
+console.log(MONGO_URL);
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);

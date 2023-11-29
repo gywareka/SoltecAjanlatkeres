@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "NodeNext",
     "baseUrl": "src",
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist",
     "sourceMap": true,
     "noImplicitAny": true,
