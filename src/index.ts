@@ -6,35 +6,40 @@ import compression from "compression";
 import cors from "cors";
 import "dotenv/config";
 import mongoose, { Error } from "mongoose";
-import router from "./router";
 
 const app: Express = express();
 
 app.set("view engine", "ejs");
 
+// Middlewares
 app.use(
   cors({
     credentials: true,
   })
 );
-
 app.use(compression());
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/", router());
+app.use("/", express.static("public"));
+
+// This seems to break the page
+//app.use("/", router());
 
 const server = http.createServer(app);
 
-app.get("/", (req: Request, res: Response) => {
-  //res.render("index", { text: "World" });
-  //res.download("src/index.ts",);
+app.post("/submit-form", (req: Request, res: Response) => {
+  res.send(req.body);
 });
 
-app.use(express.static(__dirname));
+app.get("/admin", (req: Request, res: Response) => {
+  res.render("admin");
+});
 
-server.listen(8080, () => {
-  console.log("Server running in http://localhost:8080/");
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server running in http://localhost:${PORT}/`);
 });
 
 const MONGO_URL = process.env.MONGODB_CONNECTION_STRING;
