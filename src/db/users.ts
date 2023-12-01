@@ -4,6 +4,8 @@ const UserSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
+  installLocation: { type: String, required: true },
+  consumption: { type: Number, required: true },
 });
 
 export const UserModel = mongoose.model("User", UserSchema);
