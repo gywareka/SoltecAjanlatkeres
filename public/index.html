@@ -1,37 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="uimage/x-icon" href="/assets/favicon.ico" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Soltec ajánlatkérés</title>
-  </head>
-  <body>
-    <h1 id="title">Csanéd hatalmas a kukija</h1>
-    <h2>Second title</h2>
-    <div class="container">
-      <h1>Price Offer Form</h1>
-      <form id="priceForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
+<!doctype html>
+<html lang="hu">
+<head>
+    <title>Ajánlatkérés - Soltec</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="soltecstyle.css" type="text/css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="https://www.soltec.hu"><img src="assets/logo_300dpi-removebg-preview.png" width="180px"></a>
+        </div>
+    </header>
+    <main>
+        <table class="table">
+            <tr>
+                <th colspan="3"><h2>Ide jöhet a kérdés:</h2></th>
+            </tr> 
+            <tr>
+                <td><p>Az első gomb</p></td>
+                <td><p>A második gomb</p></td>
+                <td><p>A harmadik gomb</p></td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <div class="footertext">
+            <p style="color: white;">Írásvédettség</p>
+        </div>
+    </footer>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="installation_location">Email:</label>
-        <input
-          type="text"
-          id="installation_location"
-          name="installation_location"
-          required
-        />
-
-        <button type="submit">Beküldés</button>
-      </form>
-    </div>
-    <output id="output"></output>
-
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
