@@ -43,10 +43,12 @@ server.listen(PORT, () => {
 });
 
 const MONGO_URL = process.env.MONGODB_CONNECTION_STRING;
-console.log(MONGO_URL);
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
+mongoose.connection.on("open", () => {
+  console.info("Connected to MongoDB");
+});
 mongoose.connection.on("error", (error: Error) => {
   console.error(error);
 });
