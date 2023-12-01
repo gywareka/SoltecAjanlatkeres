@@ -1,0 +1,51 @@
+/* logo colors: #fbb03b (narancs) #7f817c (szürke) */
+* {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #fff;
+}
+.logo {
+    padding: 10px;
+}
+body {
+    background-image: url(assets/solarpanelbg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+main {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.table {
+    color: #f88f02;
+    border-radius: 20px;
+    display: table;
+    background-color: azure;
+    opacity: 0.85;
+    margin: auto;
+    height: 50vh;
+    width: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+footer {
+    margin: 0;
+    padding: 0;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:26px;
+    background-color: black;
+}
+.footertext {
+    padding: 5px;
+}
