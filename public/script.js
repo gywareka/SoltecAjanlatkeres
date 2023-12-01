@@ -1,8 +1,10 @@
 console.log("This is logged from the public folder");
 
-const form = document.querySelector("form");
+const form = document.getElementById("priceForm");
 const submitter = document.querySelector("button[value=Beküldés]");
 const output = document.getElementById("output");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
 
 const handleSubmitForm = (event) => {
   event.preventDefault();
@@ -15,7 +17,7 @@ const handleSubmitForm = (event) => {
   });
 
   // Send data to the backend
-  fetch("submit-form", {
+  fetch("/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,8 +26,8 @@ const handleSubmitForm = (event) => {
   })
     .then((response) => response.json())
     .then((response) => {
-      //TODO Handle the response from the sever
-      // Let the user know that the from has been successfully sent, etc.
+      //TODO Handle the response from the server
+      //TODO Let the user know that the from has been successfully sent, etc.
       console.info(response);
     })
     .catch((error) => {

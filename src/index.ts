@@ -6,10 +6,13 @@ import compression from "compression";
 import cors from "cors";
 import "dotenv/config";
 import mongoose, { Error } from "mongoose";
-import router from "./router";
+import { createPdfDocument } from "./helpers";
+import { router } from "./router";
 
 const app: Express = express();
-//const router: Router = express.Router();
+
+// Only temporary, later will be created separately
+const adminRouter: Router = express.Router();
 
 app.set("view engine", "ejs");
 
@@ -25,14 +28,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", express.static("public"));
-
 app.use("/", router);
+app.use("/admin", adminRouter);
 
 const server = http.createServer(app);
-
-app.post("/submit-form", (req: Request, res: Response) => {
-  res.send(req.body);
-});
 
 app.get("/admin", (req: Request, res: Response) => {
   res.render("admin");

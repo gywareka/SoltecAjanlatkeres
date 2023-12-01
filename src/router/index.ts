@@ -1,10 +1,20 @@
-import express from "express";
-import authentication from "./authentication";
+import express, { Request, Response, NextFunction } from "express";
+import { createPdfDocument } from "../helpers";
 
-const router = express.Router();
+export const router = express.Router();
 
-export default (): express.Router => {
-  authentication(router);
+// This handles the post request for the form
+router.post("/", (req: Request, res: Response) => {
+  console.log("[server] Form submitted");
 
-  return router;
-};
+  createPdfDocument();
+
+  res.send(req.body);
+});
+
+router.get("/invoice", (req, res, next) => {
+  res.writeHead(200, {
+    "Content-Type": "application/pdf",
+    "Content-Disposition": "attachment;filename=soltec_ajanlatkeres.pdf",
+  });
+});
