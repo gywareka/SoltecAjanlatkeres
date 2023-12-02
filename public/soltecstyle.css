@@ -4,7 +4,9 @@
     padding: 0;
 }
 .header {
-    background-color: #fff;
+    background-color: #eaeaea;
+    display: flex;
+    justify-items: start;
 }
 .logo {
     padding: 10px;
@@ -26,16 +28,28 @@ main {
     color: #f88f02;
     border-radius: 20px;
     display: table;
-    background-color: azure;
-    opacity: 0.85;
+    background-color: #eaeaea;
+    opacity: 0.9;
     margin: auto;
     height: 50vh;
-    width: 550px;
+    width: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-
+}
+.privandpoli {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+a:link {
+    color: #f88f02;
+}
+a:visited {
+    color: #f88f02;
+}
+.name {
+    width: 150px;
 }
 footer {
     margin: 0;
@@ -48,4 +62,8 @@ footer {
 }
 .footertext {
     padding: 5px;
+    
+}
+.footertext:p {
+    display: inline;
 }
