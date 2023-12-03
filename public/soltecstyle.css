@@ -1,72 +1,86 @@
 /* logo colors: #fbb03b (narancs) #7f817c (szürke) */
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .header {
-    background-color: #eaeaea;
-    display: flex;
-    justify-items: start;
+  background-color: #eaeaea;
+  display: flex;
+  justify-items: start;
+  height: 10vh;
 }
 .logo {
-    padding: 10px;
+  padding: 10px;
 }
 body {
-    background-image: url(assets/solarpanelbg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url(assets/solarpanelbg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+h2 {
+  font-size: x-large;
 }
-main {
-    color: #f88f02;
-    border-radius: 20px;
-    display: flex;
-    background-color: #eaeaea;
-    opacity: 0.9;
-    margin: auto;
-    height: 400px;
-    width: 700px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 30px;
+
+.container {
+  display: flex;
+  height: 80vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
-.inputBox {
-    position: relative;
-    width: 250px;
+
+form {
+  color: #f88f02;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  border-radius: 20px;
+  opacity: 0.8;
+  width: 60%;
+  height: 80%;
+  background-color: #eaeaea;
 }
-.inputBox input {
-    width: 100%;
-    padding: 10px;
-    border: solid 1px #f88f02;
-    border-radius: 5px;
-    outline: none;
-    color: #f88f02;
-    font-size: 1em;
+input {
+  width: 50%;
+  padding: 10px;
+  border: solid 1px #f88f02;
+  border-radius: 5px;
+  outline: none;
+  color: #f88f02;
+  font-size: 1em;
 }
 .inputBox span {
-    position: absolute;
-    left: 0;
-    padding-top: 5px;
-    pointer-events: none;
-    font-size: 1em;
-    color: #f88f02;
-    text-transform: uppercase;
+  position: absolute;
+  left: 0;
+  padding-top: 5px;
+  pointer-events: none;
+  font-size: 1em;
+  color: #f88f02;
+  text-transform: uppercase;
 }
-footer {
-    margin: 0;
-    padding: 0;
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:26px;
-    background-color: black;
+.footer {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5vh;
+  background-color: black;
 }
-.footertext {
-    padding: 2px;
-    justify-content: center;
-    display: inline-block;
-    color: white;
+.footer_text {
+  height: 100%;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  color: white;
 }
 .privandpoli {
     display: flex;
@@ -76,6 +90,10 @@ footer {
 a:link {
     color: white;
 }
+
 a:visited {
-    color: white
+  color: white;
+  display: flex;
+  align-items: start;
+  justify-content: center;
 }

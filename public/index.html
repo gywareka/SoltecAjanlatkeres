@@ -1,42 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hu">
-<head>
+  <head>
     <title>Ajánlatkérés - Soltec Kft.</title>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="soltecstyle.css" type="text/css">
-</head>
-<body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="uimage/x-icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="soltecstyle.css" type="text/css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
     <header class="header">
-        <div class="logo">
-            <a href="https://www.soltec.hu"><img src="assets/logo_300dpi-removebg-preview.png" width="180px"></a>
-        </div>
+      <div class="logo">
+        <a href="https://www.soltec.hu"
+          ><img src="assets/logo_300dpi-removebg-preview.png" width="180px"
+        /></a>
+      </div>
     </header>
     <main>
-        <h2>Ajánlatkéréshez adja meg az adatait.</h2>
-        <div class="inputBox">
-            <form>
-                <input type="text" required="required">
-                <span>Vezetéknév</span>
-            </form>
-        </div>
-        <div class="inputBox">
-            <form>
-                <input type="text" required="required">
-                <span>Keresztnév</span>
-            </form>
-        </div>
-        <div class="inputBox">
-            <form>
-                <input type="text" required="required">
-                <span>Email</span>
-            </form>
-        </div>
-        <div class="inputBox">
-            <form>
-                <input type="submit" value="Tovább">
-            </form>
-        </div>
+      <div class="container">
+        <form>
+          <h2>Ajánlatkéréshez adja meg az adatait.</h2>
+          <input
+            type="text"
+            id="lastname"
+            required="required"
+            placeholder="Vezetéknév"
+          />
+          <input
+            type="text"
+            id="firstname"
+            required="required"
+            placeholder="Keresztnév"
+          />
+          <input
+            type="email"
+            id="email"
+            required="required"
+            placeholder="Email"
+          />
+          <input type="submit" value="Tovább" />
+        </form>
+      </div>
     </main>
     <footer>
         <div class="footertext">
@@ -47,6 +51,5 @@
                 /<a href="assets/soltecfelhasznalasi.pdf"> Felhasználási feltételek</a></p>
         </div>
     </footer>
-
-</body>
+  </body>
 </html>
