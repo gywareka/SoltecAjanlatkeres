@@ -78,12 +78,12 @@ input {
   color: white;
 }
 .privandpoli {
-  display: flex;
-  align-items: start;
-  justify-content: center;
+    display: flex;
+    align-items: start;
+    justify-content: center;
 }
 a:link {
-  color: white;
+    color: white;
 }
 
 a:visited {
