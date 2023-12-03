@@ -11,11 +11,14 @@
   display: flex;
   justify-items: start;
   height: 8vh;
-  min-height: fit-content;
+  min-height: 80px;
 }
 .logo {
   padding: 1rem;
   height: 100%;
+}
+.logo img  {
+    height: 100%;
 }
 
 body {
@@ -44,19 +47,22 @@ form {
   justify-content: center;
   gap: 1.5rem;
   border-radius: 20px;
-  opacity: 0.9;
+  opacity: 0.8;
   width: 60%;
   height: 80%;
   background-color: #eaeaea;
 }
 form h1 {
-    margin-bottom: 4rem;
+    margin-bottom: 5%;
+    margin-top: 5%;
+
 }
 .submit {
     background-color: #f88f02;
     color: #fff;
     width: 30%;
-    margin-top: 3rem;
+    margin-top: 0.5%;
+    margin-bottom: 3%;
     transition: all 0.35s
 }
 .submit:hover {
