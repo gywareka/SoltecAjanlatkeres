@@ -1,10 +1,20 @@
 console.log("This is logged from the public folder");
 
-const form = document.getElementById("priceForm");
-const submitter = document.querySelector("button[value=Beküldés]");
-const output = document.getElementById("output");
-const nameInput = document.getElementById("name");
+const form = document.querySelector("form");
+const lastNameInput = document.getElementById("lastname");
+const firstNameInput = document.getElementById("firstname");
 const emailInput = document.getElementById("email");
+
+let firstName = "";
+let lastName = "";
+let email = "";
+
+const handleSubmitNameAndEmail = (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  console.log(formData);
+};
 
 const handleSubmitForm = (event) => {
   event.preventDefault();
@@ -35,4 +45,4 @@ const handleSubmitForm = (event) => {
     });
 };
 
-form.addEventListener("submit", handleSubmitForm);
+form.addEventListener("submit", handleSubmitNameAndEmail);
