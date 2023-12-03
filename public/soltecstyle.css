@@ -44,10 +44,23 @@ form {
   justify-content: center;
   gap: 1.5rem;
   border-radius: 20px;
-  opacity: 0.8;
+  opacity: 0.9;
   width: 60%;
   height: 80%;
   background-color: #eaeaea;
+}
+form h1 {
+    margin-bottom: 4rem;
+}
+.submit {
+    background-color: #f88f02;
+    color: #fff;
+    width: 30%;
+    margin-top: 3rem;
+    transition: all 0.35s
+}
+.submit:hover {
+    transform: scale(1.1);
 }
 input {
   width: 50%;
@@ -61,6 +74,7 @@ input {
 input::placeholder {
     color: #f88f02;
 }
+
 .footer {
   margin: 0;
   padding: 0;
@@ -76,7 +90,7 @@ input::placeholder {
 .footer_text {
   position: relative;
   height: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
   display: block;
   color: white;
 }
