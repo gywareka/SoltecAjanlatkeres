@@ -73,3 +73,9 @@ footer {
     align-items: start;
     justify-content: center;
 }
+a:link {
+    color: white;
+}
+a:visited {
+    color: white
+}
