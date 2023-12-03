@@ -29,13 +29,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", express.static("public"));
 app.use("/", router);
-app.use("/admin", adminRouter);
 
 const server = http.createServer(app);
-
-app.get("/admin", (req: Request, res: Response) => {
-  res.render("admin");
-});
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
