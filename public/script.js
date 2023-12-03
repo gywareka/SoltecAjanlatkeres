@@ -12,8 +12,45 @@ let email = "";
 const handleSubmitNameAndEmail = (event) => {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
-  console.log(formData);
+  console.log("Form submitted");
+
+
+  const container = document.getElementById("container");
+  container.replaceChildren();
+  const form = document.createElement("form");
+  container.appendChild(form);
+
+// A második oldal cime
+  const Secontitle = document.createElement("h1")
+  form.appendChild(Secontitle)
+  Secontitle.innerHTML = "Adjda meg a telepítési címet"
+
+// A mádosik oldal első inputja (irányitoszám)
+  const locationInput1 = document.createElement("input");
+  form.appendChild(locationInput1);
+  locationInput1.placeholder = "Irányítószám"
+
+// A mádosik oldal második inputja (Város)
+  const locationInput2 = document.createElement("input");
+  form.appendChild(locationInput2);
+  locationInput2.placeholder = "Város"
+
+// A mádosik oldal harmadik inputja (Utca)
+  const locationInput3 = document.createElement("input");
+  form.appendChild(locationInput3);
+  locationInput3.placeholder = "Utca"
+
+// A mádosik oldal negyedik inputja (Hazszam)
+  const locationInput4 = document.createElement("input");
+  form.appendChild(locationInput4);
+  locationInput4.placeholder = "Házszám"
+
+// A második oldal tovább gombja
+  const submitButton = document.createElement("input");
+  submitButton.type = "submit"
+  submitButton.value = "Tovább"
+  form.appendChild(submitButton);
+  submitButton.classList.add("submit")
 };
 
 const handleSubmitForm = (event) => {
@@ -45,4 +82,4 @@ const handleSubmitForm = (event) => {
     });
 };
 
-form.addEventListener("submit", handleSubmitNameAndEmail);
+form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
