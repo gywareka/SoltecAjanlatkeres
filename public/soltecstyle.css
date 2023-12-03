@@ -10,6 +10,7 @@
   background-color: #eaeaea;
   display: flex;
   justify-items: start;
+  height: 8vh;
   min-height: fit-content;
 }
 .logo {
@@ -29,7 +30,7 @@ h2 {
 
 .container {
   display: flex;
-  height: 80vh;
+  height: 88vh;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -54,10 +55,12 @@ input {
   border: solid 1px #f88f02;
   border-radius: 5px;
   outline: none;
-  color: #f88f02;
+    color: #f88f02;
   font-size: 1em;
 }
-
+input::placeholder {
+    color: #f88f02;
+}
 .footer {
   margin: 0;
   padding: 0;
