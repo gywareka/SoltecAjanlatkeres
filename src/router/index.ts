@@ -3,6 +3,7 @@ import { createPdfDocument } from "../helpers";
 import { adminRouter } from "./admin";
 import { UserType, createUser } from "../db/users";
 import { transporter } from "../helpers/email";
+import { createTransport } from "nodemailer";
 
 export const router = express.Router();
 
@@ -28,13 +29,30 @@ router.post("/", async (req: Request, res: Response) => {
     };
 
     createPdfDocument(userData);
-    res.sendFile("ajanlatkeres.pdf", (error) => {
+
+    const mailOptions = {
+      from: "dev.tarjanyicsanad@gmail.com",
+      to: userData.email,
+      subject: "Soltec Árajánlat",
+      text: `<h1>Tisztelt ${userData.lastName} ${userData.firstName}</h1>
+      <p>Mellékelten küldjük az ön árajánlatát.</p><a>Tetszik</a>`,
+      attachments: [
+        {
+          filename: "arajanlat.pdf",
+          path: "ajanlatkeres.pdf",
+        },
+      ],
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.log("Error sending the file: ", error);
+        res.status(400).send(error);
+      } else {
+        res.status(200).send(`Email sent: ${info.response}`);
       }
     });
   } catch (error) {
-    res.status(400);
+    res.status(400).send(error);
   }
 });
 
@@ -46,10 +64,14 @@ router.get("/invoice", (req, res, next) => {
   next();
 });
 
+// Only used for testing
+// Sends the email based on the request's body, but doesn't add a new user
+// to the database
 router.post("/send-email", (req, res) => {
   console.log("Sending email...");
+
   const mailOptions = {
-    from: "Krystaltear Studios <dev.easysouls@gmail.com>",
+    from: "dev.tarjanyicsanad@gmail.com",
     to: req.body.email,
     subject: "Soltec Árajánlat",
     text: `<h1>Tisztelt ${req.body.fullName}</h1>
@@ -58,7 +80,7 @@ router.post("/send-email", (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      res.status(400).send(error);
+      res.status(400).send(error.message);
     } else {
       res.status(200).send(`Email sent: ${info.response}`);
     }
