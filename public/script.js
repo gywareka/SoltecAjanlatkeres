@@ -83,3 +83,34 @@ const handleSubmitForm = (event) => {
 };
 
 form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
+
+// Email tesztelése
+const testEmail = () => {
+  const data = {
+    email: "tarjanyicsanad@gmail.com",
+    fullName: "Tarjányi Bence Csanád",
+  };
+
+  fetch("/send-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.info(res);
+      if (res.status === 200) {
+        alert("Email sikeresen elküldve!");
+      } else {
+        alert(`Státusz kód: ${res.status}`);
+      }
+    })
+    .catch((error) => {
+      console.error("Hiba az email elküldésében: ", error);
+    });
+};
+
+const sendEmailBtn = document.getElementsByClassName("email_test_btn")[0];
+sendEmailBtn.addEventListener("click", () => testEmail());
