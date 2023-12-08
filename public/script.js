@@ -9,6 +9,7 @@ let firstName = "";
 let lastName = "";
 let email = "";
 
+
 const handleSubmitNameAndEmail = (event) => {
   event.preventDefault();
 
@@ -46,11 +47,59 @@ const handleSubmitNameAndEmail = (event) => {
   locationInput4.placeholder = "Házszám"
 
 // A második oldal tovább gombja
-  const submitButton = document.createElement("input");
-  submitButton.type = "submit"
-  submitButton.value = "Tovább"
-  form.appendChild(submitButton);
-  submitButton.classList.add("submit")
+  const submitButton2 = document.createElement("input");
+  submitButton2.type = "submit"
+  submitButton2.value = "Tovább"
+  form.appendChild(submitButton2);
+  submitButton2.classList.add("submit")
+
+  const handleSubmitLocation = (event) => {
+    event.preventDefault();
+    console.log("Form submitted")
+  
+    const container = document.getElementById("container");
+    container.replaceChildren();
+    const form = document.createElement("form");
+    container.appendChild(form);
+
+    const ThirdTitle = document.createElement("h1")
+    form.appendChild(ThirdTitle)
+    ThirdTitle.innerHTML = "Adja meg az átlag fogyasztását"
+
+    const ButtonDiv = document.createElement("div")
+    form.appendChild(ButtonDiv)
+    ButtonDiv.classList.add("ThirdPage")
+
+    const ConsButton1 = document.createElement("button");
+    ButtonDiv.appendChild(ConsButton1);
+    ConsButton1.classList.add("button-75")
+    ConsButton1.textContent = "2000 kWh"
+
+    const ConsButton2 = document.createElement("button");
+    ButtonDiv.appendChild(ConsButton2);
+    ConsButton2.classList.add("button-75")
+    ConsButton2.textContent = "3500 kWh"
+
+    const ConsButton3 = document.createElement("button");
+    ButtonDiv.appendChild(ConsButton3);
+    ConsButton3.classList.add("button-75")
+    ConsButton3.textContent = "5000 kWh"
+
+    const ConsButton4 = document.createElement("button");
+    ButtonDiv.appendChild(ConsButton4);
+    ConsButton4.classList.add("button-75")
+    ConsButton4.textContent = "7000 kWh"
+
+    const submitButton3 = document.createElement("input")
+    submitButton3.type = "submit"
+    submitButton3.value = "Tovább"
+    form.appendChild(submitButton3)
+    submitButton3.classList.add("submit");
+
+  }
+  
+
+  form.addEventListener("submit", (event) => handleSubmitLocation(event))
 };
 
 const handleSubmitForm = (event) => {
@@ -83,3 +132,5 @@ const handleSubmitForm = (event) => {
 };
 
 form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
+
+
