@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Barlow Condensed", sans-serif;
 }
 .header {
   background-color: #eaeaea;
@@ -17,8 +18,8 @@
   padding: 1rem;
   height: 100%;
 }
-.logo img  {
-    height: 100%;
+.logo img {
+  height: 100%;
 }
 
 body {
@@ -53,20 +54,19 @@ form {
   background-color: #eaeaea;
 }
 form h1 {
-    margin-bottom: 5%;
-    margin-top: 5%;
-
+  margin-bottom: 5%;
+  margin-top: 5%;
 }
 .submit {
-    background-color: #f88f02;
-    color: #fff;
-    width: 30%;
-    margin-top: 0.5%;
-    margin-bottom: 3%;
-    transition: all 0.35s
+  background-color: #f88f02;
+  color: #fff;
+  width: 30%;
+  margin-top: 0.5%;
+  margin-bottom: 3%;
+  transition: all 0.35s;
 }
 .submit:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 input {
   width: 50%;
@@ -74,11 +74,11 @@ input {
   border: solid 1px #f88f02;
   border-radius: 5px;
   outline: none;
-    color: #f88f02;
+  color: #f88f02;
   font-size: 1em;
 }
 input::placeholder {
-    color: #f88f02;
+  color: #f88f02;
 }
 
 .footer {
@@ -101,12 +101,12 @@ input::placeholder {
   color: white;
 }
 .privandpoli {
-    display: flex;
-    align-items: start;
-    justify-content: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
 }
 a:link {
-    color: white;
+  color: white;
 }
 
 a:visited {

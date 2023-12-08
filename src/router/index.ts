@@ -1,9 +1,8 @@
-import express, { Request, Response, NextFunction } from "express";
+import express, { Request, Response } from "express";
 import { createPdfDocument } from "../helpers";
 import { adminRouter } from "./admin";
 import { UserType, createUser } from "../db/users";
 import { transporter } from "../helpers/email";
-import { createTransport } from "nodemailer";
 
 export const router = express.Router();
 
@@ -34,8 +33,10 @@ router.post("/", async (req: Request, res: Response) => {
       from: "dev.tarjanyicsanad@gmail.com",
       to: userData.email,
       subject: "Soltec Árajánlat",
-      text: `<h1>Tisztelt ${userData.lastName} ${userData.firstName}</h1>
-      <p>Mellékelten küldjük az ön árajánlatát.</p><a>Tetszik</a>`,
+      text: `<h3>Tisztelt ${userData.lastName} ${userData.firstName}</h3>
+            <p>Mellékelten küldjük az ön árajánlatát. Ha előzetes ajánlatunk megnyerte tetszését, kérjük kattintson ide:</p>
+            <a href="">ÉRDEKEL</a>
+            <p>és munkatársunk felveszi önnel a kapcsolatot</p>`,
       attachments: [
         {
           filename: "arajanlat.pdf",
@@ -56,17 +57,9 @@ router.post("/", async (req: Request, res: Response) => {
   }
 });
 
-router.get("/invoice", (req, res, next) => {
-  res.writeHead(200, {
-    "Content-Type": "application/pdf",
-    "Content-Disposition": 'attachment;filename="ajanlatkeres.pdf"',
-  });
-  next();
-});
-
 // Only used for testing
-// Sends the email based on the request's body, but doesn't add a new user
-// to the database
+// Sends the email based on the request's body, but doesn't add
+// a new user to the database
 router.post("/send-email", (req, res) => {
   console.log("Sending email...");
 
@@ -85,4 +78,8 @@ router.post("/send-email", (req, res) => {
       res.status(200).send(`Email sent: ${info.response}`);
     }
   });
+});
+
+router.get("/visszajelzes", (req, res) => {
+  res.render("feedback");
 });
