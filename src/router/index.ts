@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
-import { createPdfDocument } from "../helpers";
+import { createPdfDocument, processPriceOfferAcceptance } from "../helpers";
 import { adminRouter } from "./admin";
-import { UserType, createUser } from "../db/users";
+import { UserModel, UserType, createUser } from "../db/users";
 import { transporter } from "../helpers/email";
 
 export const router = express.Router();
@@ -35,7 +35,7 @@ router.post("/", async (req: Request, res: Response) => {
       subject: "Soltec Árajánlat",
       text: `<h3>Tisztelt ${userData.lastName} ${userData.firstName}</h3>
             <p>Mellékelten küldjük az ön árajánlatát. Ha előzetes ajánlatunk megnyerte tetszését, kérjük kattintson ide:</p>
-            <a href="">ÉRDEKEL</a>
+            <a href="http://localhost:3000/visszajelzes?id=${user._id}">ÉRDEKEL</a>
             <p>és munkatársunk felveszi önnel a kapcsolatot</p>`,
       attachments: [
         {
@@ -80,6 +80,27 @@ router.post("/send-email", (req, res) => {
   });
 });
 
-router.get("/visszajelzes", (req, res) => {
-  res.render("feedback");
+router.get("/visszajelzes/:userId", async (req, res) => {
+  const userId = req.params.userId;
+  try {
+    const user = await UserModel.findById(userId);
+
+    // Check if the user has already accepted the offer
+    // This prevent notifying Soltec more than one time from the same user
+    if (user.offerAccepted) {
+      // Process the acceptance (notify the firm)
+      await processPriceOfferAcceptance(user._id);
+
+      res.status(200).send("Ajánlat elfogava");
+    } else {
+      res.status(400).send("Az ajánlat már el lett fogadva");
+    }
+  } catch (error) {
+    console.error("Hiba a visszajelzésben. Frissítse újra az oldalt!");
+    res
+      .status(500)
+      .send(
+        "Szerver hiba. Kérjük frissítse újra az oldalt, vagy próbálkozzon később."
+      );
+  }
 });
