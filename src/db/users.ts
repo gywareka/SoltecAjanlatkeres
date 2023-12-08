@@ -1,10 +1,28 @@
 import mongoose from "mongoose";
 
+export interface UserType {
+  firstName: string;
+  lastName: string;
+  email: string;
+  installationLocation: {
+    zipCode: number;
+    city: string;
+    street: string;
+    houseNumber: number;
+  };
+  consumption: number;
+}
+
 const UserSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
-  installLocation: { type: String, required: true },
+  installationLocation: {
+    zipCode: { type: Number, required: true },
+    city: { type: String, required: true },
+    street: { type: String, required: true },
+    houseNumber: { type: Number, required: true },
+  },
   consumption: { type: Number, required: true },
 });
 

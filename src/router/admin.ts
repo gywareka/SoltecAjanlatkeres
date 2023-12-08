@@ -9,6 +9,5 @@ adminRouter.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 adminRouter.get("/", (req: Request, res: Response) => {
-  console.log("Admin route");
-  res.send("Admin page");
+  res.render("admin");
 });
