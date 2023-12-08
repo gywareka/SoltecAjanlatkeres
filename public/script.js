@@ -60,35 +60,45 @@ const handleSubmitNameAndEmail = (event) => {
     container.replaceChildren();
     const form = document.createElement("form");
     container.appendChild(form);
-
+// A harmadik oldal cime
     const ThirdTitle = document.createElement("h1")
     form.appendChild(ThirdTitle)
     ThirdTitle.innerHTML = "Adja meg az átlag fogyasztását"
 
+// A harmadik oldal div-je amibe vannak a gombok
     const ButtonDiv = document.createElement("div")
     form.appendChild(ButtonDiv)
     ButtonDiv.classList.add("ThirdPage")
 
+// A harmadik oldal 1. gombja
     const ConsButton1 = document.createElement("button");
+    ConsButton1.type = "button"
     ButtonDiv.appendChild(ConsButton1);
     ConsButton1.classList.add("button-75")
     ConsButton1.textContent = "2000 kWh"
 
+// A harmadik oldal 2. gombja
     const ConsButton2 = document.createElement("button");
+    ConsButton2.type = "button"
     ButtonDiv.appendChild(ConsButton2);
     ConsButton2.classList.add("button-75")
     ConsButton2.textContent = "3500 kWh"
 
+// A harmadik oldal 3. gombja
     const ConsButton3 = document.createElement("button");
+    ConsButton3.type = "button"
     ButtonDiv.appendChild(ConsButton3);
     ConsButton3.classList.add("button-75")
     ConsButton3.textContent = "5000 kWh"
 
+// A harmadik oldal 4. gombja
     const ConsButton4 = document.createElement("button");
+    ConsButton4.type = "button"
     ButtonDiv.appendChild(ConsButton4);
     ConsButton4.classList.add("button-75")
     ConsButton4.textContent = "7000 kWh"
-
+    
+// A harmadik oldal Tovább gombja
     const submitButton3 = document.createElement("input")
     submitButton3.type = "submit"
     submitButton3.value = "Tovább"
