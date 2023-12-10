@@ -59,10 +59,11 @@ const handleSubmitNameAndEmail = (event) => {
     container.replaceChildren();
     const form = document.createElement("form");
     container.appendChild(form);
-    // A harmadik oldal cime
-    const ThirdTitle = document.createElement("h1");
-    form.appendChild(ThirdTitle);
-    ThirdTitle.innerHTML = "Adja meg az átlag fogyasztását";
+    
+// A harmadik oldal cime
+    const ThirdTitle = document.createElement("h1")
+    form.appendChild(ThirdTitle)
+    ThirdTitle.innerHTML = "Adja meg az éves átlag fogyasztását"
 
     // A harmadik oldal div-je amibe vannak a gombok
     const ButtonDiv = document.createElement("div");
