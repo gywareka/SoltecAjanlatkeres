@@ -1,7 +1,8 @@
 import crypto from "crypto";
 import PDFDocument from "pdfkit";
 import fs from "fs";
-import { UserType } from "../db/users";
+import { UserModel, UserType } from "../db/users";
+import mongoose from "mongoose";
 
 export const random = () => crypto.randomBytes(128).toString("base64");
 export const authentication = (salt: string, password: string) => {
@@ -44,3 +45,14 @@ export const createPdfDocument = (user: UserType) => {
   // Finalize the pdf and end the stream
   doc.end();
 };
+
+export async function processPriceOfferAcceptance(id: mongoose.Types.ObjectId) {
+  //TODO
+  try {
+    const user = await UserModel.findById(id);
+    user.offerAccepted = true;
+    await user.save();
+  } catch (error) {
+    throw new Error("Error accepting the price offer");
+  }
+}

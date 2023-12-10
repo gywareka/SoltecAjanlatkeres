@@ -24,6 +24,7 @@ const UserSchema = new mongoose.Schema({
     houseNumber: { type: Number, required: true },
   },
   consumption: { type: Number, required: true },
+  offerAccepted: { type: Boolean, default: false },
 });
 
 export const UserModel = mongoose.model("User", UserSchema);
