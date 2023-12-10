@@ -52,5 +52,7 @@ export async function processPriceOfferAcceptance(id: mongoose.Types.ObjectId) {
     const user = await UserModel.findById(id);
     user.offerAccepted = true;
     await user.save();
-  } catch (error) {}
+  } catch (error) {
+    throw new Error("Error accepting the price offer");
+  }
 }

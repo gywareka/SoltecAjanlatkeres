@@ -29,13 +29,14 @@ router.post("/", async (req: Request, res: Response) => {
 
     createPdfDocument(userData);
 
+    //TODO Change link when in production
     const mailOptions = {
       from: "dev.tarjanyicsanad@gmail.com",
       to: userData.email,
       subject: "Soltec Árajánlat",
       text: `<h3>Tisztelt ${userData.lastName} ${userData.firstName}</h3>
             <p>Mellékelten küldjük az ön árajánlatát. Ha előzetes ajánlatunk megnyerte tetszését, kérjük kattintson ide:</p>
-            <a href="http://localhost:3000/visszajelzes?id=${user._id}">ÉRDEKEL</a>
+            <a href="http://localhost:3000/visszajelzes/${user._id}">ÉRDEKEL</a>
             <p>és munkatársunk felveszi önnel a kapcsolatot</p>`,
       attachments: [
         {
@@ -87,11 +88,11 @@ router.get("/visszajelzes/:userId", async (req, res) => {
 
     // Check if the user has already accepted the offer
     // This prevent notifying Soltec more than one time from the same user
-    if (user.offerAccepted) {
+    if (!user.offerAccepted) {
       // Process the acceptance (notify the firm)
       await processPriceOfferAcceptance(user._id);
 
-      res.status(200).send("Ajánlat elfogava");
+      res.render("feedback");
     } else {
       res.status(400).send("Az ajánlat már el lett fogadva");
     }
