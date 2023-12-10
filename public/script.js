@@ -76,6 +76,12 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton1);
     ConsButton1.classList.add("button-75");
     ConsButton1.textContent = "2000 kWh";
+    ConsButton1.setAttribute("id","ThrdFisrtBt")
+    document.getElementById("ThrdFisrtBt").onclick = function() {FirstBtValue()};
+    // Az első gomb funkciója 
+    function FirstBtValue () {
+      console.log(document.getElementById("ThrdFisrtBt").textContent)
+    }
 
     // A harmadik oldal 1 gombjának képe
     const ThrdPgImg1 = document.createElement("img");
@@ -89,6 +95,12 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton2);
     ConsButton2.classList.add("button-75");
     ConsButton2.textContent = "3500 kWh";
+    ConsButton2.setAttribute("id", "ThrdSecBt")
+    document.getElementById("ThrdSecBt").onclick = function() {SecBtValue()};
+    // Az második gomb funkciója 
+    function SecBtValue (){
+      console.log(document.getElementById("ThrdSecBt").textContent)
+    }
     
     // A harmadik oldal  2. gobjának képe
     const ThrdPgImg2 = document.createElement("img");
@@ -102,7 +114,12 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton3);
     ConsButton3.classList.add("button-75");
     ConsButton3.textContent = "5000 kWh";
-      
+    ConsButton3.setAttribute("id", "ThrdThrdBt")
+    document.getElementById("ThrdThrdBt").onclick = function() {ThrdBtValue()};
+    // Az harmadik gomb funkciója 
+    function ThrdBtValue (){
+      console.log(document.getElementById("ThrdThrdBt").textContent)
+    }
     // A harmadik oldal 3. gobjának képe
     const ThrdPgImg3 = document.createElement("img");
     ConsButton3.appendChild(ThrdPgImg3);
@@ -115,19 +132,25 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton4);
     ConsButton4.classList.add("button-75");
     ConsButton4.textContent = "7000 kWh";
-      
+    ConsButton4.setAttribute("id", "ThrdFrthBt")
+    document.getElementById("ThrdFrthBt").onclick = function() {ThrdFrthValue()};
+    // Az negyedik gomb funkciója 
+    function ThrdFrthValue (){
+      console.log(document.getElementById("ThrdFrthBt").textContent)
+    }
+
     // A harmadik oldal  4. gobjának képe
     const ThrdPgImg4 = document.createElement("img");
     ConsButton4.appendChild(ThrdPgImg4);
     ThrdPgImg4.src = "./assets/bigfamily.png";
     ThrdPgImg4.classList.add("ThirdPageImg");
-
+    
     // A harmadik oldal Tovább gombja
     const submitButton3 = document.createElement("input");
     submitButton3.type = "submit";
     submitButton3.value = "Tovább";
     form.appendChild(submitButton3);
-    submitButton3.classList.add("submit");
+    submitButton3.classList.add("submit"); 
   };
 
   form.addEventListener("submit", (event) => handleSubmitLocation(event));
@@ -162,5 +185,14 @@ const handleSubmitForm = (event) => {
       console.error("Hiba a beküldésben: ", error);
     });
 };
+
+// const all_button = document.getElementsByClassName("button-75");
+// console.log(all_button);
+
+// all_button.forEach(bt => {
+//   bt.addEventListener("click", (e) =>{
+//     console.log(e.target.textContent)
+//   })
+// })
 
 form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
