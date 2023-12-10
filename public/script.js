@@ -9,7 +9,6 @@ let firstName = "";
 let lastName = "";
 let email = "";
 
-
 const handleSubmitNameAndEmail = (event) => {
   event.preventDefault();
 
@@ -45,74 +44,73 @@ const handleSubmitNameAndEmail = (event) => {
   form.appendChild(locationInput4);
   locationInput4.placeholder = "Házszám";
 
-// A második oldal tovább gombja
+  // A második oldal tovább gombja
   const submitButton2 = document.createElement("input");
-  submitButton2.type = "submit"
-  submitButton2.value = "Tovább"
+  submitButton2.type = "submit";
+  submitButton2.value = "Tovább";
   form.appendChild(submitButton2);
-  submitButton2.classList.add("submit")
+  submitButton2.classList.add("submit");
 
   const handleSubmitLocation = (event) => {
     event.preventDefault();
-    console.log("Form submitted")
-  
+    console.log("Form submitted");
+
     const container = document.getElementById("container");
     container.replaceChildren();
     const form = document.createElement("form");
     container.appendChild(form);
-// A harmadik oldal cime
-    const ThirdTitle = document.createElement("h1")
-    form.appendChild(ThirdTitle)
-    ThirdTitle.innerHTML = "Adja meg az átlag fogyasztását"
+    // A harmadik oldal cime
+    const ThirdTitle = document.createElement("h1");
+    form.appendChild(ThirdTitle);
+    ThirdTitle.innerHTML = "Adja meg az átlag fogyasztását";
 
-// A harmadik oldal div-je amibe vannak a gombok
-    const ButtonDiv = document.createElement("div")
-    form.appendChild(ButtonDiv)
-    ButtonDiv.classList.add("ThirdPage")
+    // A harmadik oldal div-je amibe vannak a gombok
+    const ButtonDiv = document.createElement("div");
+    form.appendChild(ButtonDiv);
+    ButtonDiv.classList.add("ThirdPage");
 
-// A harmadik oldal 1. gombja
+    // A harmadik oldal 1. gombja
     const ConsButton1 = document.createElement("button");
-    ConsButton1.type = "button"
+    ConsButton1.type = "button";
     ButtonDiv.appendChild(ConsButton1);
-    ConsButton1.classList.add("button-75")
-    ConsButton1.textContent = "2000 kWh"
+    ConsButton1.classList.add("button-75");
+    ConsButton1.textContent = "2000 kWh";
 
-    const ThrdPgImg1 = document.createElement("img")
-    ConsButton1.appendChild(ThrdPgImg1)
-    ThrdPgImg1.src = "assets\oneperson.png"
-    ThrdPgImg1.classList.add("ThirdPageImg")
+    const ThrdPgImg1 = document.createElement("img");
+    ConsButton1.appendChild(ThrdPgImg1);
+    ThrdPgImg1.src = "./assets/oneperson.png";
+    ThrdPgImg1.classList.add("ThirdPageImg");
 
-// A harmadik oldal 2. gombja
+    // A harmadik oldal 2. gombja
     const ConsButton2 = document.createElement("button");
-    ConsButton2.type = "button"
+    ConsButton2.type = "button";
     ButtonDiv.appendChild(ConsButton2);
-    ConsButton2.classList.add("button-75")
-    ConsButton2.textContent = "3500 kWh"
+    ConsButton2.classList.add("button-75");
+    ConsButton2.textContent = "3500 kWh";
 
-// A harmadik oldal 3. gombja
+    // A harmadik oldal 3. gombja
     const ConsButton3 = document.createElement("button");
-    ConsButton3.type = "button"
+    ConsButton3.type = "button";
     ButtonDiv.appendChild(ConsButton3);
-    ConsButton3.classList.add("button-75")
-    ConsButton3.textContent = "5000 kWh"
+    ConsButton3.classList.add("button-75");
+    ConsButton3.textContent = "5000 kWh";
 
-// A harmadik oldal 4. gombja
+    // A harmadik oldal 4. gombja
     const ConsButton4 = document.createElement("button");
-    ConsButton4.type = "button"
+    ConsButton4.type = "button";
     ButtonDiv.appendChild(ConsButton4);
-    ConsButton4.classList.add("button-75")
-    ConsButton4.textContent = "7000 kWh"
+    ConsButton4.classList.add("button-75");
+    ConsButton4.textContent = "7000 kWh";
 
-// A harmadik oldal Tovább gombja
-    const submitButton3 = document.createElement("input")
-    submitButton3.type = "submit"
-    submitButton3.value = "Tovább"
-    form.appendChild(submitButton3)
+    // A harmadik oldal Tovább gombja
+    const submitButton3 = document.createElement("input");
+    submitButton3.type = "submit";
+    submitButton3.value = "Tovább";
+    form.appendChild(submitButton3);
     submitButton3.classList.add("submit");
+  };
 
-  }
-
-  form.addEventListener("submit", (event) => handleSubmitLocation(event))
+  form.addEventListener("submit", (event) => handleSubmitLocation(event));
 };
 
 const handleSubmitForm = (event) => {
@@ -146,5 +144,3 @@ const handleSubmitForm = (event) => {
 };
 
 form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
-
-
