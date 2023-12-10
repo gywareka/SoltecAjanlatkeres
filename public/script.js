@@ -77,6 +77,11 @@ const handleSubmitNameAndEmail = (event) => {
     ConsButton1.classList.add("button-75")
     ConsButton1.textContent = "2000 kWh"
 
+    const ThrdPgImg1 = document.createElement("img")
+    ConsButton1.appendChild(ThrdPgImg1)
+    ThrdPgImg1.src = "assets\oneperson.png"
+    ThrdPgImg1.classList.add("ThirdPageImg")
+
 // A harmadik oldal 2. gombja
     const ConsButton2 = document.createElement("button");
     ConsButton2.type = "button"
@@ -97,7 +102,7 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton4);
     ConsButton4.classList.add("button-75")
     ConsButton4.textContent = "7000 kWh"
-    
+
 // A harmadik oldal Tovább gombja
     const submitButton3 = document.createElement("input")
     submitButton3.type = "submit"
