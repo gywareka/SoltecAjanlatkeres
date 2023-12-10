@@ -77,6 +77,7 @@ const handleSubmitNameAndEmail = (event) => {
     ConsButton1.classList.add("button-75");
     ConsButton1.textContent = "2000 kWh";
 
+    // A harmadik oldal 1 gombjának képe
     const ThrdPgImg1 = document.createElement("img");
     ConsButton1.appendChild(ThrdPgImg1);
     ThrdPgImg1.src = "./assets/oneperson.png";
@@ -88,6 +89,12 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton2);
     ConsButton2.classList.add("button-75");
     ConsButton2.textContent = "3500 kWh";
+    
+    // A harmadik oldal  2. gobjának képe
+    const ThrdPgImg2 = document.createElement("img");
+    ConsButton2.appendChild(ThrdPgImg2);
+    ThrdPgImg2.src = "./assets/twoperson.png";
+    ThrdPgImg2.classList.add("ThirdPageImg");
 
     // A harmadik oldal 3. gombja
     const ConsButton3 = document.createElement("button");
@@ -95,6 +102,12 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton3);
     ConsButton3.classList.add("button-75");
     ConsButton3.textContent = "5000 kWh";
+      
+    // A harmadik oldal 3. gobjának képe
+    const ThrdPgImg3 = document.createElement("img");
+    ConsButton3.appendChild(ThrdPgImg3);
+    ThrdPgImg3.src = "./assets/family.png";
+    ThrdPgImg3.classList.add("ThirdPageImg");
 
     // A harmadik oldal 4. gombja
     const ConsButton4 = document.createElement("button");
@@ -102,6 +115,12 @@ const handleSubmitNameAndEmail = (event) => {
     ButtonDiv.appendChild(ConsButton4);
     ConsButton4.classList.add("button-75");
     ConsButton4.textContent = "7000 kWh";
+      
+    // A harmadik oldal  4. gobjának képe
+    const ThrdPgImg4 = document.createElement("img");
+    ConsButton4.appendChild(ThrdPgImg4);
+    ThrdPgImg4.src = "./assets/bigfamily.png";
+    ThrdPgImg4.classList.add("ThirdPageImg");
 
     // A harmadik oldal Tovább gombja
     const submitButton3 = document.createElement("input");
