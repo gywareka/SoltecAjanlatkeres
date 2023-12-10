@@ -23,7 +23,7 @@
 }
 
 body {
-  background-image: url(assets/secondbg.JPG);
+  background-image: url(assets/bg4.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -41,31 +41,35 @@ h2 {
 }
 
 form {
-  color: #f88f02;
+  color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
   border-radius: 20px;
-  opacity: 0.8;
+  /* opacity: 0.9; */
   width: 60%;
   height: 80%;
   /*background-color: #eaeaea; */
-  backdrop-filter: blur(15px);
-  background: rgba(234, 234, 234, 1);
+  backdrop-filter: blur(5px);
+  background: rgba(234, 234, 234, 0.5);
 }
 form h1 {
+  font-size: 2.5rem;
   margin-bottom: 5%;
   margin-top: 5%;
 }
 .submit {
-  background-image: linear-gradient(135deg, #f88f02 40%, #fcb002);
-  color: #fff;
+  background-color: #2f2f2f;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: bold;
   width: 30%;
-  margin-top: 0.5%;
+  margin-top: 1%;
   margin-bottom: 3%;
   transition: all 0.35s;
+  opacity: 1 !important;
 }
 .submit:hover {
   transform: scale(1.1);
@@ -73,14 +77,15 @@ form h1 {
 input {
   width: 50%;
   padding: 10px;
-  border: solid 1px #f88f02;
+  border: solid 1px black;
   border-radius: 5px;
   outline: none;
-  color: #f88f02;
+  color: black;
   font-size: 1em;
 }
 input::placeholder {
-  color: #f88f02;
+  color: black;
+  font-weight: bold
 }
 
 .footer {
@@ -130,7 +135,7 @@ a:visited {
 /* CSS */
 .button-75 {
   align-items: center;
-  background-image: linear-gradient(135deg, #f88f02 40%, #fcb002);
+  background-image: linear-gradient(135deg, #2f2f2f 40%, #8c8c8c);
   border: 0;
   border-radius: 5px;
   box-sizing: border-box;
