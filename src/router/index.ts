@@ -1,12 +1,9 @@
 import express, { Request, Response } from "express";
 import { createPdfDocument, processPriceOfferAcceptance } from "../helpers";
-import { adminRouter } from "./admin";
 import { UserModel, UserType, createUser } from "../db/users";
 import { transporter } from "../helpers/email";
 
 export const router = express.Router();
-
-router.use("/admin", adminRouter);
 
 router.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
@@ -31,7 +28,7 @@ router.post("/", async (req: Request, res: Response) => {
 
     //TODO Change link when in production
     const mailOptions = {
-      from: "dev.tarjanyicsanad@gmail.com",
+      from: "info@soltec.hu",
       to: userData.email,
       subject: "Soltec Árajánlat",
       text: `<h3>Tisztelt ${userData.lastName} ${userData.firstName}</h3>
