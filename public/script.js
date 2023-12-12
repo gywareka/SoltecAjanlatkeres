@@ -74,10 +74,26 @@ const handleSubmitNameAndEmail = (event) => {
     const ConsButton1 = document.createElement("button");
     ConsButton1.type = "button";
     ButtonDiv.appendChild(ConsButton1);
-    ConsButton1.classList.add("button-75");
+    ConsButton1.classList.add("button");
     ConsButton1.textContent = "2000 kWh";
     ConsButton1.setAttribute("id","ThrdFisrtBt")
     document.getElementById("ThrdFisrtBt").onclick = function() {FirstBtValue()};
+
+    form.addEventListener("button", (event) => handleButtonClick(event))
+    const handleButtonClick = (event) => {
+      event.preventDefault();
+    }
+
+    const ButtonNewClass = document.querySelectorAll(".button")
+
+    ButtonNewClass.forEach(ButtonNewClass => {
+      ButtonNewClass.addEventListener('click', () => {
+        document.querySelector('.buttonclicked').classList.remove('buttonclicked');
+        ButtonNewClass.classList.remove('button')
+        ButtonNewClass.classList.add('buttonclicked')
+      })
+    })
+
     // Az első gomb funkciója 
     function FirstBtValue () {
       console.log(document.getElementById("ThrdFisrtBt").textContent)
@@ -93,7 +109,7 @@ const handleSubmitNameAndEmail = (event) => {
     const ConsButton2 = document.createElement("button");
     ConsButton2.type = "button";
     ButtonDiv.appendChild(ConsButton2);
-    ConsButton2.classList.add("button-75");
+    ConsButton2.classList.add("button");
     ConsButton2.textContent = "3500 kWh";
     ConsButton2.setAttribute("id", "ThrdSecBt")
     document.getElementById("ThrdSecBt").onclick = function() {SecBtValue()};
@@ -112,7 +128,7 @@ const handleSubmitNameAndEmail = (event) => {
     const ConsButton3 = document.createElement("button");
     ConsButton3.type = "button";
     ButtonDiv.appendChild(ConsButton3);
-    ConsButton3.classList.add("button-75");
+    ConsButton3.classList.add("button");
     ConsButton3.textContent = "5000 kWh";
     ConsButton3.setAttribute("id", "ThrdThrdBt")
     document.getElementById("ThrdThrdBt").onclick = function() {ThrdBtValue()};
@@ -130,7 +146,7 @@ const handleSubmitNameAndEmail = (event) => {
     const ConsButton4 = document.createElement("button");
     ConsButton4.type = "button";
     ButtonDiv.appendChild(ConsButton4);
-    ConsButton4.classList.add("button-75");
+    ConsButton4.classList.add("button");
     ConsButton4.textContent = "7000 kWh";
     ConsButton4.setAttribute("id", "ThrdFrthBt")
     document.getElementById("ThrdFrthBt").onclick = function() {ThrdFrthValue()};
@@ -152,7 +168,7 @@ const handleSubmitNameAndEmail = (event) => {
     form.appendChild(submitButton3);
     submitButton3.classList.add("submit"); 
   };
-
+  
   form.addEventListener("submit", (event) => handleSubmitLocation(event));
 };
 
