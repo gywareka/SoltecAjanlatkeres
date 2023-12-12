@@ -66,7 +66,6 @@ form {
   width: 20px;
   height: 20px;
   margin-right: 15px;
-
 }
 form h1 {
   font-size: 2.5rem;
@@ -98,7 +97,7 @@ input {
 }
 input::placeholder {
   color: black;
-  font-weight: bold
+  font-weight: bold;
 }
 
 .footer {
@@ -142,7 +141,12 @@ a:visited {
   gap: 4rem;
 }
 
-.button {
+.cons-btn {
+  visibility: hidden;
+}
+
+.button,
+.cons-label {
   align-items: center;
   background-image: linear-gradient(135deg, #2f2f2f 40%, #8c8c8c);
   border: 0;
@@ -159,7 +163,7 @@ a:visited {
   justify-content: center;
   letter-spacing: 0.4px;
   line-height: 1;
-  width:8rem;
+  width: 8rem;
   max-width: fit-content;
   padding: 5px;
   text-decoration: none;
@@ -169,14 +173,19 @@ a:visited {
   transition: all 0.35s;
 }
 
-.button:active {
+.cons-label:active {
   outline: 0;
 }
 
-.button:hover {
+.cons-label:hover {
   outline: 0;
   transform: scale(1.1);
 }
+
+.selected {
+  border: solid 0.3rem #eaeaea;
+}
+
 .buttonclicked {
   align-items: center;
   background-image: linear-gradient(135deg, #2f2f2f 40%, #8c8c8c);
@@ -194,7 +203,7 @@ a:visited {
   justify-content: center;
   letter-spacing: 0.4px;
   line-height: 1;
-  width:8rem;
+  width: 8rem;
   max-width: fit-content;
   padding: 5px;
   text-decoration: none;
