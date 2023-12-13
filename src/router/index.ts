@@ -55,6 +55,55 @@ router.post("/", async (req: Request, res: Response) => {
   }
 });
 
+router.get("/visszajelzes/:userId", async (req, res) => {
+  const userId = req.params.userId;
+  try {
+    const user = await UserModel.findById(userId);
+
+    // Check if the user has already accepted the offer
+    // This prevent notifying Soltec more than one time from the same user
+    if (!user.offerAccepted) {
+      // Process the acceptance (notify the firm)
+      await processPriceOfferAcceptance(user._id);
+
+      createPdfDocument({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        installationLocation: user.installationLocation,
+        consumption: user.consumption,
+      });
+
+      // TODO Change to email address when deploying
+      const mailOptions = {
+        from: "info@soltec.hu",
+        to: "tarjanyicsanad@gmail.com",
+        subject: "Árajánlat elfogadva",
+        text: `<p>${user.lastName} ${user.firstName} elfogadta a számára generált árajánlatot</p>
+              <p>Ezen az email címen tudja felvenni vele a kapcsolatot: ${user.email}</p>
+              <p>Mellékletként szerepel az ügyfél számára elküldött árajánlat.`,
+        attachments: [
+          {
+            filename: "arajanlat.pdf",
+            path: "ajanlatkeres.pdf",
+          },
+        ],
+      };
+
+      res.render("feedback");
+    } else {
+      res.status(400).send("Az ajánlat már el lett fogadva");
+    }
+  } catch (error) {
+    console.error("Hiba a visszajelzésben. Frissítse újra az oldalt!");
+    res
+      .status(500)
+      .send(
+        "Szerver hiba. Kérjük frissítse újra az oldalt, vagy próbálkozzon később."
+      );
+  }
+});
+
 // Only used for testing
 // Sends the email based on the request's body, but doesn't add
 // a new user to the database
@@ -76,29 +125,4 @@ router.post("/send-email", (req, res) => {
       res.status(200).send(`Email sent: ${info.response}`);
     }
   });
-});
-
-router.get("/visszajelzes/:userId", async (req, res) => {
-  const userId = req.params.userId;
-  try {
-    const user = await UserModel.findById(userId);
-
-    // Check if the user has already accepted the offer
-    // This prevent notifying Soltec more than one time from the same user
-    if (!user.offerAccepted) {
-      // Process the acceptance (notify the firm)
-      await processPriceOfferAcceptance(user._id);
-
-      res.render("feedback");
-    } else {
-      res.status(400).send("Az ajánlat már el lett fogadva");
-    }
-  } catch (error) {
-    console.error("Hiba a visszajelzésben. Frissítse újra az oldalt!");
-    res
-      .status(500)
-      .send(
-        "Szerver hiba. Kérjük frissítse újra az oldalt, vagy próbálkozzon később."
-      );
-  }
 });

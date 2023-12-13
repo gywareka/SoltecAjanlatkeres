@@ -28,9 +28,12 @@ app.use("/", router);
 
 //const server = http.createServer(app);
 
+const isProduction = process.env.NODE_ENV === "production";
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running in http://localhost:${PORT}/`);
+  if (!isProduction) {
+    console.log(`Server running in http://localhost:${PORT}/`);
+  }
 });
 
 const MONGO_URL = process.env.MONGODB_CONNECTION_STRING;
