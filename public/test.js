@@ -1,5 +1,3 @@
-console.log("This is logged from the public folder");
-
 const form = document.querySelector("form");
 
 let userData = {
@@ -77,6 +75,7 @@ const renderThirdPage = () => {
   form.appendChild(ButtonDiv);
   ButtonDiv.classList.add("ThirdPage");
 
+  // Eme lista alapján generálódnak a gombok
   const buttonValues = [
     {
       value: 2000,
@@ -96,6 +95,8 @@ const renderThirdPage = () => {
     },
   ];
 
+  // Végigmegy a buttonValues lista összes elemén, és létrehoz
+  // egy elemet az adatok alapján
   for (const btn of buttonValues) {
     const button = createElement("button", {
       type: "radio",
@@ -117,7 +118,7 @@ const renderThirdPage = () => {
         .querySelector(`label[for="${event.target.value}"]`)
         .classList.add("selected");
 
-      userData.consumption = event.target.value;
+      userData.consumption = Number(event.target.value);
     });
 
     const label = createElement("label", {
