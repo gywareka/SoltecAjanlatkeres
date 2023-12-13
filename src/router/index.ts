@@ -90,6 +90,12 @@ router.get("/visszajelzes/:userId", async (req, res) => {
         ],
       };
 
+      transporter.sendMail(mailOptions, (error) => {
+        if (error) {
+          res.status(400).send(error);
+        }
+      });
+
       res.render("feedback");
     } else {
       res.status(400).send("Az ajánlat már el lett fogadva");
