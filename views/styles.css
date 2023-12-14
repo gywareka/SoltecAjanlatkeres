@@ -8,3 +8,8 @@
 body {
   background-color: blueviolet;
 }
+
+#facebook_post_btn {
+  border: solid 1px black;
+  background-color: #0338aa;
+}
