@@ -3,14 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:url"
+      content="https://soltecajanlatkeresapi.onrender.com"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Soltec Árkalkulátor" />
+    <meta property="og:description" content="Árkalkulátor" />
+    <meta property="og:image" content="../public/assets.solarpanelbg.jpg" />
     <link rel="stylesheet" href="styles.css" type="text/css" />
     <title>Visszajelzés - Soltec Kft.</title>
   </head>
   <body>
     <h3>Köszönjük szépen a visszajelzését</h3>
-    <p>
-      Ezt az oldalt nyugodtan bezárhatja, a munkatársunk majd felveszi önnel a
-      kapcsolatot.
-    </p>
+    <p>A munkatársunk majd felveszi önnel a kapcsolatot.</p>
+    <button id="facebook_post_btn" onclick="postFacebook()">Megosztás</button>
+
+    <script>
+      function postFacebook() {
+        const url =
+          "https://www.facebook.com/dialog/feed?app_id=145634995501895&display=popup&link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https://developers.facebook.com/tools/explorer";
+        window.open(url, "_blank");
+      }
+    </script>
   </body>
 </html>
