@@ -10,21 +10,36 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Soltec Árkalkulátor" />
     <meta property="og:description" content="Árkalkulátor" />
-    <meta property="og:image" content="../public/assets.solarpanelbg.jpg" />
+    <meta
+      property="og:image"
+      content="	https://soltecajanlatkeresapi.onrender.com/assets/removegblightbulb.png"
+    />
     <link rel="stylesheet" href="styles.css" type="text/css" />
     <title>Visszajelzés - Soltec Kft.</title>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v18.0&appId=891532085610564"
+      nonce="LaxS7JGp"
+    ></script>
     <h3>Köszönjük szépen a visszajelzését</h3>
     <p>A munkatársunk majd felveszi önnel a kapcsolatot.</p>
-    <button id="facebook_post_btn" onclick="postFacebook()">Megosztás</button>
-
-    <script>
-      function postFacebook() {
-        const url =
-          "https://www.facebook.com/dialog/feed?app_id=145634995501895&display=popup&link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https://developers.facebook.com/tools/explorer";
-        window.open(url, "_blank");
-      }
-    </script>
+    <div
+      class="fb-share-button"
+      data-href="https://soltecajanlatkeresapi.onrender.com/"
+      data-layout=""
+      data-size=""
+    >
+      <a
+        target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse"
+        class="fb-xfbml-parse-ignore"
+        >Megosztás</a
+      >
+    </div>
   </body>
 </html>
