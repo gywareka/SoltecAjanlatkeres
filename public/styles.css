@@ -1,52 +1,54 @@
-body {
-  font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #045888;
+body{
+  background-color: whitesmoke;
+  font-family: sans-serif;
 }
 
+h1{
+  text-align: center;
+}
 .container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 60vw;
-}
-
-#title {
-  display: block;
-}
-
-form {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
-label {
-  margin-bottom: 8px;
+.text {
+  margin-bottom: 25px;
+  font-size: 2rem;
+  letter-spacing: 2px;
 }
 
-input,
-button {
-  margin-bottom: 16px;
-  padding: 8px;
+.loading {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+.loading .line-box {
+  padding: 2px;
+  width: 40%;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
-button:hover {
-  background-color: #45a049;
+.loading .line-box .line {
+  height: 20px;
+  border-radius: 10px;
+  background: grey;
+  animation: loading 30s forwards cubic-bezier(0,0,0,0);
 }
 
-#output {
-  background-color: aqua;
+@keyframes loading{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 100%;
+  }
 }
