@@ -14,14 +14,74 @@
       property="og:image"
       content="	https://soltecajanlatkeresapi.onrender.com/assets/removegblightbulb.png"
     />
-    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      .header {
+        background-color: #eaeaea;
+        display: flex;
+        justify-items: start;
+        height: 8vh;
+        min-height: 80px;
+      }
+      .logo {
+        padding: 1rem;
+        height: 100%;
+      }
+      .logo img {
+        height: 100%;
+      }
+
+      body {
+        background-image: url(bg4.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .container {
+        display: flex;
+        height: 88vh;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+      .form {
+        color: black;
+        display: flex;
+        border-radius: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: 80%;
+        backdrop-filter: blur(5px);
+        background: #eaeaea80;
+      }
+
+      body {
+        background-color: blueviolet;
+      }
+
+      #facebook_post_btn {
+        border: solid 1px black;
+        background-color: #0338aa;
+      }
+    </style>
     <title>Visszajelzés - Soltec Kft.</title>
   </head>
   <body>
     <header class="header">
       <div class="logo">
         <a href="https://www.soltec.hu"
-          ><img src="logo_300dpi-removebg-preview.png"/>
+          ><img src="logo_300dpi-removebg-preview.png" />
         </a>
       </div>
     </header>
@@ -29,23 +89,25 @@
       <div id="fb-root"></div>
       <div class="container">
         <div class="form">
-          <h1>Köszönjük szépen a visszajelzését!</h1></br>
-            <h2>
-            Ezt az oldalt nyugodtan bezárhatja, a munkatársunk hamarosan felveszi önnel a
-            kapcsolatot.
-            </h2>
+          <h1>Köszönjük szépen a visszajelzését!</h1>
+          <br />
+          <h2>
+            Ezt az oldalt nyugodtan bezárhatja, a munkatársunk hamarosan
+            felveszi önnel a kapcsolatot.
+          </h2>
         </div>
         <div
-         class="fb-share-button"
-         data-href="https://soltecajanlatkeresapi.onrender.com/"
-         data-layout=""
-         data-size=""
-         >
-           <a
+          class="fb-share-button"
+          data-href="https://soltecajanlatkeresapi.onrender.com/"
+          data-layout=""
+          data-size=""
+        >
+          <a
             target="_blank"
             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse"
             class="fb-xfbml-parse-ignore"
-            >Megosztás</a>
+            >Megosztás</a
+          >
         </div>
       </div>
     </main>
