@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:url"
+      content="https://soltecajanlatkeresapi.onrender.com"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Soltec Árkalkulátor" />
+    <meta property="og:description" content="Árkalkulátor" />
+    <meta
+      property="og:image"
+      content="	https://soltecajanlatkeresapi.onrender.com/assets/removegblightbulb.png"
+    />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <title>Visszajelzés - Soltec Kft.</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="https://www.soltec.hu"
+          ><img src="logo_300dpi-removebg-preview.png" />
+        </a>
+      </div>
+    </header>
+    <main>
+      <div id="fb-root"></div>
+      <div class="container">
+        <div class="form">
+          <p><% locals.message %></p>
+        </div>
+        <div
+          class="fb-share-button"
+          data-href="https://soltecajanlatkeresapi.onrender.com/"
+          data-layout=""
+          data-size=""
+        >
+          <a
+            target="_blank"
+            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse"
+            class="fb-xfbml-parse-ignore"
+            >Megosztás</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v18.0&appId=891532085610564"
+      nonce="LaxS7JGp"
+    ></script>
+  </body>
+</html>

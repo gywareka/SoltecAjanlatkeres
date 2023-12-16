@@ -98,15 +98,16 @@ router.get("/visszajelzes/:userId", async (req, res) => {
 
       res.render("feedback");
     } else {
-      res.status(400).send("Az ajánlat már el lett fogadva");
+      res.render("feedback_error", {
+        message:
+          "Visszajelzését már továbbítottuk kollegáink felé. Köszönjük szépen szíves türelmét, amíg felvesszük önnel a kapcsolatot.",
+      });
     }
   } catch (error) {
     console.error("Hiba a visszajelzésben. Frissítse újra az oldalt!");
-    res
-      .status(500)
-      .send(
-        "Szerver hiba. Kérjük frissítse újra az oldalt, vagy próbálkozzon később."
-      );
+    res.render("feedback_error", {
+      message: "Szerver hiba! Kérem frissítse újra az oldalt!",
+    });
   }
 });
 
