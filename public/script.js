@@ -1,214 +1,263 @@
-console.log("This is logged from the public folder");
-
 const form = document.querySelector("form");
-const lastNameInput = document.getElementById("lastname");
-const firstNameInput = document.getElementById("firstname");
-const emailInput = document.getElementById("email");
 
-let firstName = "";
-let lastName = "";
-let email = "";
-
-const handleSubmitNameAndEmail = (event) => {
-  event.preventDefault();
-
-  console.log("Form submitted");
-
-  const container = document.getElementById("container");
-  container.replaceChildren();
-  const form = document.createElement("form");
-  container.appendChild(form);
-
-  // A második oldal cime
-  const Secontitle = document.createElement("h1");
-  form.appendChild(Secontitle);
-  Secontitle.innerHTML = "Adjda meg a telepítési címet";
-
-  // A mádosik oldal első inputja (irányitoszám)
-  const locationInput1 = document.createElement("input");
-  form.appendChild(locationInput1);
-  locationInput1.placeholder = "Irányítószám";
-
-  // A mádosik oldal második inputja (Város)
-  const locationInput2 = document.createElement("input");
-  form.appendChild(locationInput2);
-  locationInput2.placeholder = "Város";
-
-  // A mádosik oldal harmadik inputja (Utca)
-  const locationInput3 = document.createElement("input");
-  form.appendChild(locationInput3);
-  locationInput3.placeholder = "Utca";
-
-  // A mádosik oldal negyedik inputja (Hazszam)
-  const locationInput4 = document.createElement("input");
-  form.appendChild(locationInput4);
-  locationInput4.placeholder = "Házszám";
-
-  // A második oldal tovább gombja
-  const submitButton2 = document.createElement("input");
-  submitButton2.type = "submit";
-  submitButton2.value = "Tovább";
-  form.appendChild(submitButton2);
-  submitButton2.classList.add("submit");
-
-  const handleSubmitLocation = (event) => {
-    event.preventDefault();
-    console.log("Form submitted");
-
-    const container = document.getElementById("container");
-    container.replaceChildren();
-    const form = document.createElement("form");
-    container.appendChild(form);
-    
-// A harmadik oldal cime
-    const ThirdTitle = document.createElement("h1")
-    form.appendChild(ThirdTitle)
-    ThirdTitle.innerHTML = "Adja meg az éves átlag fogyasztását"
-
-    // A harmadik oldal div-je amibe vannak a gombok
-    const ButtonDiv = document.createElement("div");
-    form.appendChild(ButtonDiv);
-    ButtonDiv.classList.add("ThirdPage");
-
-    // A harmadik oldal 1. gombja
-    const ConsButton1 = document.createElement("button");
-    ConsButton1.type = "button";
-    ButtonDiv.appendChild(ConsButton1);
-    ConsButton1.classList.add("button");
-    ConsButton1.textContent = "2000 kWh";
-    ConsButton1.setAttribute("id","ThrdFisrtBt")
-    document.getElementById("ThrdFisrtBt").onclick = function() {FirstBtValue()};
-
-    form.addEventListener("button", (event) => handleButtonClick(event))
-    const handleButtonClick = (event) => {
-      event.preventDefault();
-    }
-
-    const ButtonNewClass = document.querySelectorAll(".button")
-
-    ButtonNewClass.forEach(ButtonNewClass => {
-      ButtonNewClass.addEventListener('click', () => {
-        document.querySelector('.buttonclicked').classList.remove('buttonclicked');
-        ButtonNewClass.classList.remove('button')
-        ButtonNewClass.classList.add('buttonclicked')
-      })
-    })
-
-    // Az első gomb funkciója 
-    function FirstBtValue () {
-      console.log(document.getElementById("ThrdFisrtBt").textContent)
-    }
-
-    // A harmadik oldal 1 gombjának képe
-    const ThrdPgImg1 = document.createElement("img");
-    ConsButton1.appendChild(ThrdPgImg1);
-    ThrdPgImg1.src = "./assets/oneperson.png";
-    ThrdPgImg1.classList.add("ThirdPageImg");
-
-    // A harmadik oldal 2. gombja
-    const ConsButton2 = document.createElement("button");
-    ConsButton2.type = "button";
-    ButtonDiv.appendChild(ConsButton2);
-    ConsButton2.classList.add("button");
-    ConsButton2.textContent = "3500 kWh";
-    ConsButton2.setAttribute("id", "ThrdSecBt")
-    document.getElementById("ThrdSecBt").onclick = function() {SecBtValue()};
-    // Az második gomb funkciója 
-    function SecBtValue (){
-      console.log(document.getElementById("ThrdSecBt").textContent)
-    }
-    
-    // A harmadik oldal  2. gobjának képe
-    const ThrdPgImg2 = document.createElement("img");
-    ConsButton2.appendChild(ThrdPgImg2);
-    ThrdPgImg2.src = "./assets/twoperson.png";
-    ThrdPgImg2.classList.add("ThirdPageImg");
-
-    // A harmadik oldal 3. gombja
-    const ConsButton3 = document.createElement("button");
-    ConsButton3.type = "button";
-    ButtonDiv.appendChild(ConsButton3);
-    ConsButton3.classList.add("button");
-    ConsButton3.textContent = "5000 kWh";
-    ConsButton3.setAttribute("id", "ThrdThrdBt")
-    document.getElementById("ThrdThrdBt").onclick = function() {ThrdBtValue()};
-    // Az harmadik gomb funkciója 
-    function ThrdBtValue (){
-      console.log(document.getElementById("ThrdThrdBt").textContent)
-    }
-    // A harmadik oldal 3. gobjának képe
-    const ThrdPgImg3 = document.createElement("img");
-    ConsButton3.appendChild(ThrdPgImg3);
-    ThrdPgImg3.src = "./assets/family.png";
-    ThrdPgImg3.classList.add("ThirdPageImg");
-
-    // A harmadik oldal 4. gombja
-    const ConsButton4 = document.createElement("button");
-    ConsButton4.type = "button";
-    ButtonDiv.appendChild(ConsButton4);
-    ConsButton4.classList.add("button");
-    ConsButton4.textContent = "7000 kWh";
-    ConsButton4.setAttribute("id", "ThrdFrthBt")
-    document.getElementById("ThrdFrthBt").onclick = function() {ThrdFrthValue()};
-    // Az negyedik gomb funkciója 
-    function ThrdFrthValue (){
-      console.log(document.getElementById("ThrdFrthBt").textContent)
-    }
-
-    // A harmadik oldal  4. gobjának képe
-    const ThrdPgImg4 = document.createElement("img");
-    ConsButton4.appendChild(ThrdPgImg4);
-    ThrdPgImg4.src = "./assets/bigfamily.png";
-    ThrdPgImg4.classList.add("ThirdPageImg");
-    
-    // A harmadik oldal Tovább gombja
-    const submitButton3 = document.createElement("input");
-    submitButton3.type = "submit";
-    submitButton3.value = "Tovább";
-    form.appendChild(submitButton3);
-    submitButton3.classList.add("submit"); 
-  };
-  
-  form.addEventListener("submit", (event) => handleSubmitLocation(event));
+let userData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  installationLocation: {
+    zipCode: 0,
+    city: "",
+    street: "",
+    houseNumber: 0,
+  },
+  consumption: 0,
 };
 
-const handleSubmitForm = (event) => {
-  // Prevents the page from refreshing automatically after the form is submitted
+// Ezzel könnyebb létrehozni új elementeket
+const createElement = (tag, options) => {
+  const element = document.createElement(tag);
+  Object.assign(element, options);
+  return element;
+};
+
+// Harmadik oldal submitelésekor lejátszódó event
+// Végső event
+const handleSubmitConsumption = (event) => {
   event.preventDefault();
 
-  // Collect data from the form
-  const formData = new FormData(event.target);
-  const data = {};
-  formData.forEach((value, key) => {
-    data[key] = value;
-  });
+  console.log(`Fogyasztás: ${userData.consumption}`);
 
-  // Send data to the backend
+  // Fetch API hívás
   fetch("/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(userData),
   })
-    .then((response) => response.json())
+    // A szervertől kapott adatokat olvasható JSON-ná alakítja
     .then((response) => {
-      //TODO Handle the response from the server
-      //TODO Let the user know that the from has been successfully sent, etc.
-      console.info(response);
+      if (!response.ok) {
+        console.error(response.text);
+        alert("Hiba az adatok feldolgozásával!");
+      } else {
+        console.log(response.text);
+        alert(
+          `Árajánlat sikeresen elküldve a(z) ${userData.email} email címre.`
+        );
+      }
     })
+    // Ha akármi hiba lép fel a szerverrel való kommunikáció során,
+    // itt fog kikötni a program
     .catch((error) => {
-      console.error("Hiba a beküldésben: ", error);
+      console.error(error);
+      alert("Hiba a kérdőiv elküldésével. Kérlük próbálja újra!");
     });
 };
 
-// const all_button = document.getElementsByClassName("button-75");
-// console.log(all_button);
+const renderThirdPage = () => {
+  // Az második oldal elementjeinek kitörlése
+  const container = document.getElementById("container");
+  container.replaceChildren();
 
-// all_button.forEach(bt => {
-//   bt.addEventListener("click", (e) =>{
-//     console.log(e.target.textContent)
-//   })
-// })
+  // A harmadik oldal elementjeinek létrehozása
+  const form = document.createElement("form");
+  container.appendChild(form);
 
+  // A harmadik oldal cime
+  const ThirdTitle = createElement("h1", {
+    innerHTML: "Adja meg az éves átlag fogyasztását",
+  });
+  form.appendChild(ThirdTitle);
+
+  // A harmadik oldal gombokat tartalmazó divje
+  const ButtonDiv = document.createElement("div");
+  form.appendChild(ButtonDiv);
+  ButtonDiv.classList.add("ThirdPage");
+
+  // Eme lista alapján generálódnak a gombok
+  const buttonValues = [
+    {
+      value: 2000,
+      src: "./assets/oneperson.png",
+    },
+    {
+      value: 3500,
+      src: "./assets/twoperson.png",
+    },
+    {
+      value: 5000,
+      src: "./assets/family.png",
+    },
+    {
+      value: 7000,
+      src: "./assets/bigfamily.png",
+    },
+  ];
+
+  // Végigmegy a buttonValues lista összes elemén, és létrehoz
+  // egy elemet az adatok alapján
+  for (const btn of buttonValues) {
+    const button = createElement("button", {
+      type: "radio",
+      value: btn.value,
+      id: btn.value,
+    });
+    button.classList.add("cons-btn");
+    ButtonDiv.appendChild(button);
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const prevSelected = document.querySelector(".selected");
+      if (prevSelected) {
+        prevSelected.classList.remove("selected");
+      }
+
+      document
+        .querySelector(`label[for="${event.target.value}"]`)
+        .classList.add("selected");
+
+      userData.consumption = Number(event.target.value);
+    });
+
+    const label = createElement("label", {
+      htmlFor: btn.value,
+      textContent: `${btn.value} kWh`,
+    });
+    label.classList.add("cons-label");
+    ButtonDiv.appendChild(label);
+
+    const image = createElement("img", {
+      src: btn.src,
+    });
+    image.classList.add("ThirdPageImg");
+    label.appendChild(image);
+  }
+
+  // A harmadik oldal Tovább gombja
+  const submitButton3 = createElement("input", {
+    type: "submit",
+    value: "Tovább",
+  });
+  submitButton3.classList.add("submit");
+  form.appendChild(submitButton3);
+
+  form.addEventListener("submit", (event) => handleSubmitConsumption(event));
+};
+
+// Második oldal submitelésekor lejátszódó event
+const handleSubmitLocation = (event) => {
+  event.preventDefault();
+
+  // TODO Csak akkor álllítsa be a userData értékeit, ha korrektek az inputok
+  // TODO zipCode és houseNumber szám, city és street string
+
+  userData.installationLocation = {
+    zipCode: Number(document.getElementById("zipCode").value),
+    city: document.getElementById("city").value,
+    street: document.getElementById("street").value,
+    houseNumber: Number(document.getElementById("houseNumber").value),
+  };
+
+  //console.table(userData.installationLocation);
+
+  renderThirdPage();
+};
+
+const renderSecondPage = () => {
+  // Az első oldal elementjeinek kitörlése
+  const container = document.getElementById("container");
+  container.replaceChildren();
+
+  // A második oldal elementjeinek létrehozása
+  const form = createElement("form");
+  container.appendChild(form);
+
+  // A második oldal címe
+  const title = createElement("h1", {
+    innerHTML: "Adja meg a telepítési címet",
+  });
+  form.appendChild(title);
+
+  // A második oldal első inputja (irányitószám)
+  const zipCodeInput = createElement("input", {
+    placeholder: "Irányítószám",
+    id: "zipCode",
+    required: true,
+    value: "1354",
+  });
+  form.appendChild(zipCodeInput);
+
+  // A másosódik oldal második inputja (Város)
+  const cityInput = createElement("input", {
+    placeholder: "Város",
+    id: "city",
+    required: true,
+    value: "Budapest",
+  });
+  form.appendChild(cityInput);
+
+  // A második oldal harmadik inputja (Utca)
+  const streetInput = createElement("input", {
+    placeholder: "Utca",
+    id: "street",
+    required: true,
+    value: "János utca",
+  });
+  form.appendChild(streetInput);
+
+  // A második oldal negyedik inputja (Házszám)
+  const houseNumberInput = createElement("input", {
+    placeholder: "Házszám",
+    id: "houseNumber",
+    required: true,
+    value: "51",
+  });
+  form.appendChild(houseNumberInput);
+
+  // A második oldal tovább gombja
+  const submitButton2 = createElement("input", {
+    type: "submit",
+    value: "Tovább",
+  });
+  submitButton2.classList.add("submit");
+  form.appendChild(submitButton2);
+
+  form.addEventListener("submit", (event) => handleSubmitLocation(event));
+};
+
+// Első oldal submitelésekor lejátszódó event
+const handleSubmitNameAndEmail = (event) => {
+  event.preventDefault();
+
+  userData.firstName = document.getElementById("firstname").value;
+  userData.lastName = document.getElementById("lastname").value;
+  userData.email = document.getElementById("email").value;
+
+  //   console.log(`
+  //     Vezetéknév: ${userData.lastName}
+  //     Tulajdonnév: ${userData.firstName}
+  //     Email: ${userData.email}
+  //   `);
+
+  renderSecondPage();
+};
+
+// Az első oldal formja megkapja az event listenert
+// A többi oldal formjainak event listenerei a renderSecondPage és
+// renderThirdPage-ben történnek
 form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
+
+function timedText() {
+  let x = document.getElementById("text");
+  setTimeout(() => {
+    x.innerHTML = "Dimensioning inverter";
+  }, 10000);
+  setTimeout(() => {
+    x.innerHTML = "Calculating preliminary offer";
+  }, 20000);
+  setTimeout(() => {
+    x.innerHTML = "Köszönjük, hogy a Soltec Ajánlatkérő oldalát választotta!";
+  }, 30000);
+}
