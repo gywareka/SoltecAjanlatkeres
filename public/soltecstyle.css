@@ -239,10 +239,12 @@ a:visited {
   height: 20px;
   border: 2px solid black;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .loading .line-box .line {
-  height: 20px;
+  height: 15px;
   border-radius: 10px;
   background: black;
   animation: loading 30s forwards cubic-bezier(0,0,0,0);

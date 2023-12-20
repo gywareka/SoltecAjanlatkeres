@@ -65,7 +65,7 @@ function renderLoadingPage() {
     x.innerHTML = "Calculating preliminary offer";
   }, 20000);
   setTimeout(() => {
-    x.innerHTML = "Köszönjük, hogy a Soltec Ajánlatkérő oldalát választotta!";
+    x.innerHTML = "Köszönjük, hogy minket választott!";
   
       // Fetch API hívás
    fetch("/", {
