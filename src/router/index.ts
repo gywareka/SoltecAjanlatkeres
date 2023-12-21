@@ -77,7 +77,7 @@ router.get("/visszajelzes/:userId", async (req, res) => {
       // TODO Change to email address when deploying
       const mailOptions = {
         from: "info@soltec.hu",
-        to: "tarjanyicsanad@gmail.com",
+        to: "ervin.sjt@gmail.com",
         subject: "Árajánlat elfogadva",
         text: `<p>${user.lastName} ${user.firstName} elfogadta a számára generált árajánlatot</p>
               <p>Ezen az email címen tudja felvenni vele a kapcsolatot: ${user.email}</p>

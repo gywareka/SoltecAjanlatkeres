@@ -219,3 +219,43 @@ a:visited {
   padding-bottom: 5%;
   aspect-ratio: 1 / 1;
 }
+.text {
+  margin-bottom: 25px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.loading {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading .line-box {
+  padding: 2px;
+  width: 40%;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.loading .line-box .line {
+  height: 15px;
+  border-radius: 10px;
+  background: black;
+  animation: loading 30s forwards cubic-bezier(0,0,0,0);
+}
+
+
+@keyframes loading{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 100%;
+  }
+}

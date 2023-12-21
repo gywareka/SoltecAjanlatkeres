@@ -22,13 +22,53 @@ const createElement = (tag, options) => {
 
 // Harmadik oldal submitelésekor lejátszódó event
 // Végső event
-const handleSubmitConsumption = (event) => {
-  event.preventDefault();
 
-  console.log(`Fogyasztás: ${userData.consumption}`);
+function renderLoadingPage() {
+  // az elemek létrehozása
 
-  // Fetch API hívás
-  fetch("/", {
+ // Az harmadik oldal elementjeinek kitörlése
+ const container = document.getElementById("container");
+ container.replaceChildren();
+
+ // A loadink oldal elementjeinek létrehozása
+ const form = document.createElement("form");
+ container.appendChild(form);
+
+//  Az Loading Page 1. divje
+ const Loading1Div = document.createElement("div")
+ Loading1Div.classList.add("text")
+ form.appendChild(Loading1Div)
+
+//  A szöveg ami változik
+ const LoadingPageText = createElement("h1", {
+  innerHTML: "Generating roof allocation",
+ })
+ Loading1Div.appendChild(LoadingPageText);
+
+ const Loading2Div = document.createElement("div")
+ Loading2Div.classList.add("loading")
+ form.appendChild(Loading2Div)
+
+ const Loading3Div = document.createElement("div")
+ Loading3Div.classList.add("line-box")
+ Loading2Div.appendChild(Loading3Div)
+
+ const Loading4Div = document.createElement("div")
+ Loading4Div.classList.add("line")
+ Loading3Div.appendChild(Loading4Div)
+
+  let x = document.querySelector("h1")
+  setTimeout(() => {
+    x.innerHTML = "Dimensioning inverter";
+  }, 10000);
+  setTimeout(() => {
+    x.innerHTML = "Calculating preliminary offer";
+  }, 20000);
+  setTimeout(() => {
+    x.innerHTML = "Köszönjük, hogy minket választott!";
+  
+      // Fetch API hívás
+   fetch("/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -53,6 +93,17 @@ const handleSubmitConsumption = (event) => {
       console.error(error);
       alert("Hiba a kérdőiv elküldésével. Kérlük próbálja újra!");
     });
+  }, 30000);
+
+}
+
+const handleSubmitConsumption = (event) => {
+  event.preventDefault();
+
+  console.log(`Fogyasztás: ${userData.consumption}`);
+
+  renderLoadingPage()
+  
 };
 
 const renderThirdPage = () => {
@@ -77,10 +128,7 @@ const renderThirdPage = () => {
 
   // Eme lista alapján generálódnak a gombok
   const buttonValues = [
-    {
-      value: 2000,
-      src: "./assets/oneperson.png",
-    },
+
     {
       value: 3500,
       src: "./assets/twoperson.png",
@@ -249,15 +297,4 @@ const handleSubmitNameAndEmail = (event) => {
 // renderThirdPage-ben történnek
 form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
 
-function timedText() {
-  let x = document.getElementById("text");
-  setTimeout(() => {
-    x.innerHTML = "Dimensioning inverter";
-  }, 10000);
-  setTimeout(() => {
-    x.innerHTML = "Calculating preliminary offer";
-  }, 20000);
-  setTimeout(() => {
-    x.innerHTML = "Köszönjük, hogy a Soltec Ajánlatkérő oldalát választotta!";
-  }, 30000);
-}
+
