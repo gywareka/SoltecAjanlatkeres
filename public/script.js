@@ -63,10 +63,10 @@ function renderLoadingPage() {
   // First tiemout was 10000, second was 20000
   setTimeout(() => {
     x.innerHTML = "Dimensioning inverter";
-  }, 100);
+  }, 5000);
   setTimeout(() => {
     x.innerHTML = "Calculating preliminary offer";
-  }, 200);
+  }, 10000);
   setTimeout(() => {
     x.innerHTML = "Köszönjük, hogy minket választott!";
 
@@ -96,7 +96,7 @@ function renderLoadingPage() {
         console.error(error);
         alert("Hiba a kérdőiv elküldésével. Kérlük próbálja újra!");
       });
-  }, 300);
+  }, 15000);
 }
 
 const handleSubmitConsumption = (event) => {

@@ -1,5 +1,5 @@
 import { UserType } from "../db/users";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, StandardFonts } from "pdf-lib";
 import pdfkit from "pdfkit";
 import fs from "fs";
 
@@ -10,24 +10,43 @@ export const generatePdf = async (user: UserType) => {
 
     const pdf = await PDFDocument.load(existingBytes);
 
-    const form = pdf.getForm();
+    const font = await pdf.embedFont(StandardFonts.TimesRoman);
 
-    const nameField = form.createTextField("Név");
-    nameField.setFontSize(10);
-    nameField.setText(`${user.lastName} ${user.firstName}`);
-    nameField.addToPage(pdf.getPage(0), { x: 10, y: 200 });
+    const pages = pdf.getPages();
+    const firstPage = pages[0];
 
-    const locationField = form.createTextField("Telepítési cím");
-    locationField.setFontSize(10);
-    locationField.setText(
-      `${user.installationLocation.zipCode} ${user.installationLocation.city} ${user.installationLocation.street} ${user.installationLocation.houseNumber}`
+    const { height } = firstPage.getSize();
+
+    firstPage.drawText(`${user.lastName} ${user.firstName}`, {
+      x: 72,
+      y: height - 80,
+      size: 12,
+      font: font,
+    });
+
+    firstPage.drawText(
+      `${user.installationLocation.zipCode} ${user.installationLocation.city}, ${user.installationLocation.street} ${user.installationLocation.houseNumber}.`,
+      {
+        x: 72,
+        y: height - 95,
+        size: 12,
+        font: font,
+      }
     );
-    locationField.addToPage(pdf.getPage(0), { x: 10, y: 150 });
 
-    const dateField = form.createTextField("Dátum");
-    dateField.setFontSize(10);
-    dateField.setText(new Date().toLocaleDateString());
-    dateField.addToPage(pdf.getPage(0), { x: 10, y: 100 });
+    firstPage.drawText(new Date().toLocaleDateString(), {
+      x: 72,
+      y: height - 110,
+      size: 12,
+      font: font,
+    });
+
+    firstPage.drawText(`${user.firstName}!`, {
+      x: 116,
+      y: height - 147.5,
+      size: 14,
+      font: font,
+    });
 
     const pdfBytes = await pdf.save();
     fs.writeFileSync("ajanlatkeres.pdf", pdfBytes);
