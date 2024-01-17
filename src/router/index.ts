@@ -26,7 +26,7 @@ router.post("/", async (req: Request, res: Response) => {
     };
 
     //createPdfDocument(userData);
-    generatePdf(userData);
+    await generatePdf(userData);
 
     //TODO Change link when in production
     const mailOptions = {

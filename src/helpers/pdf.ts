@@ -12,15 +12,22 @@ export const generatePdf = async (user: UserType) => {
 
     const form = pdf.getForm();
 
-    const nameField = form.getTextField("<név>");
-    const locationField = form.getTextField("<telepítési cím>");
-    const dateField = form.getTextField("<dátum>");
-
+    const nameField = form.createTextField("Név");
+    nameField.setFontSize(10);
     nameField.setText(`${user.lastName} ${user.firstName}`);
+    nameField.addToPage(pdf.getPage(0), { x: 10, y: 200 });
+
+    const locationField = form.createTextField("Telepítési cím");
+    locationField.setFontSize(10);
     locationField.setText(
       `${user.installationLocation.zipCode} ${user.installationLocation.city} ${user.installationLocation.street} ${user.installationLocation.houseNumber}`
     );
+    locationField.addToPage(pdf.getPage(0), { x: 10, y: 150 });
+
+    const dateField = form.createTextField("Dátum");
+    dateField.setFontSize(10);
     dateField.setText(new Date().toLocaleDateString());
+    dateField.addToPage(pdf.getPage(0), { x: 10, y: 100 });
 
     const pdfBytes = await pdf.save();
     fs.writeFileSync("ajanlatkeres.pdf", pdfBytes);
