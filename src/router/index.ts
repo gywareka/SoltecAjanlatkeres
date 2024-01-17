@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
-import { createPdfDocument, processPriceOfferAcceptance } from "../helpers";
+import { processPriceOfferAcceptance } from "../helpers";
+import { createPdfDocument, generatePdf } from "../helpers/pdf";
 import { UserModel, UserType, createUser } from "../db/users";
 import { transporter } from "../helpers/email";
 
@@ -24,7 +25,8 @@ router.post("/", async (req: Request, res: Response) => {
       consumption: user.consumption,
     };
 
-    createPdfDocument(userData);
+    //createPdfDocument(userData);
+    generatePdf(userData);
 
     //TODO Change link when in production
     const mailOptions = {
