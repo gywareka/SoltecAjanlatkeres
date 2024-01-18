@@ -247,15 +247,14 @@ a:visited {
   height: 15px;
   border-radius: 10px;
   background: black;
-  animation: loading 30s forwards cubic-bezier(0,0,0,0);
+  animation: loading 15s forwards cubic-bezier(0, 0, 0, 0);
 }
 
-
-@keyframes loading{
-  0%{
+@keyframes loading {
+  0% {
     width: 0%;
   }
-  100%{
+  100% {
     width: 100%;
   }
 }

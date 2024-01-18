@@ -26,75 +26,77 @@ const createElement = (tag, options) => {
 function renderLoadingPage() {
   // az elemek létrehozása
 
- // Az harmadik oldal elementjeinek kitörlése
- const container = document.getElementById("container");
- container.replaceChildren();
+  // Az harmadik oldal elementjeinek kitörlése
+  const container = document.getElementById("container");
+  container.replaceChildren();
 
- // A loadink oldal elementjeinek létrehozása
- const form = document.createElement("form");
- container.appendChild(form);
+  // A loadink oldal elementjeinek létrehozása
+  const form = document.createElement("form");
+  container.appendChild(form);
 
-//  Az Loading Page 1. divje
- const Loading1Div = document.createElement("div")
- Loading1Div.classList.add("text")
- form.appendChild(Loading1Div)
+  //  Az Loading Page 1. divje
+  const Loading1Div = document.createElement("div");
+  Loading1Div.classList.add("text");
+  form.appendChild(Loading1Div);
 
-//  A szöveg ami változik
- const LoadingPageText = createElement("h1", {
-  innerHTML: "Generating roof allocation",
- })
- Loading1Div.appendChild(LoadingPageText);
+  //  A szöveg ami változik
+  const LoadingPageText = createElement("h1", {
+    innerHTML: "Generating roof allocation",
+  });
+  Loading1Div.appendChild(LoadingPageText);
 
- const Loading2Div = document.createElement("div")
- Loading2Div.classList.add("loading")
- form.appendChild(Loading2Div)
+  const Loading2Div = document.createElement("div");
+  Loading2Div.classList.add("loading");
+  form.appendChild(Loading2Div);
 
- const Loading3Div = document.createElement("div")
- Loading3Div.classList.add("line-box")
- Loading2Div.appendChild(Loading3Div)
+  const Loading3Div = document.createElement("div");
+  Loading3Div.classList.add("line-box");
+  Loading2Div.appendChild(Loading3Div);
 
- const Loading4Div = document.createElement("div")
- Loading4Div.classList.add("line")
- Loading3Div.appendChild(Loading4Div)
+  const Loading4Div = document.createElement("div");
+  Loading4Div.classList.add("line");
+  Loading3Div.appendChild(Loading4Div);
 
-  let x = document.querySelector("h1")
+  let x = document.querySelector("h1");
+
+  // Only changed while testing
+  // First tiemout was 10000, second was 20000
   setTimeout(() => {
     x.innerHTML = "Dimensioning inverter";
-  }, 10000);
+  }, 5000);
   setTimeout(() => {
     x.innerHTML = "Calculating preliminary offer";
-  }, 20000);
+  }, 10000);
   setTimeout(() => {
     x.innerHTML = "Köszönjük, hogy minket választott!";
-  
-      // Fetch API hívás
-   fetch("/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  })
-    // A szervertől kapott adatokat olvasható JSON-ná alakítja
-    .then((response) => {
-      if (!response.ok) {
-        console.error(response.text);
-        alert("Hiba az adatok feldolgozásával!");
-      } else {
-        console.log(response.text);
-        alert(
-          `Árajánlat sikeresen elküldve a(z) ${userData.email} email címre.`
-        );
-      }
-    })
-    // Ha akármi hiba lép fel a szerverrel való kommunikáció során,
-    // itt fog kikötni a program
-    .catch((error) => {
-      console.error(error);
-      alert("Hiba a kérdőiv elküldésével. Kérlük próbálja újra!");
-    });
-  }, 30000);
 
+    // Fetch API hívás
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      // A szervertől kapott adatokat olvasható JSON-ná alakítja
+      .then((response) => {
+        if (!response.ok) {
+          console.error(response.text);
+          alert("Hiba az adatok feldolgozásával!");
+        } else {
+          console.log(response.text);
+          alert(
+            `Árajánlat sikeresen elküldve a(z) ${userData.email} email címre.`
+          );
+        }
+      })
+      // Ha akármi hiba lép fel a szerverrel való kommunikáció során,
+      // itt fog kikötni a program
+      .catch((error) => {
+        console.error(error);
+        alert("Hiba a kérdőiv elküldésével. Kérlük próbálja újra!");
+      });
+  }, 15000);
 }
 
 const handleSubmitConsumption = (event) => {
@@ -102,8 +104,7 @@ const handleSubmitConsumption = (event) => {
 
   console.log(`Fogyasztás: ${userData.consumption}`);
 
-  renderLoadingPage()
-  
+  renderLoadingPage();
 };
 
 const renderThirdPage = () => {
@@ -232,7 +233,7 @@ const renderSecondPage = () => {
     placeholder: "Irányítószám",
     id: "zipCode",
     required: true,
-    // value: "1354",
+    value: "1354",
   });
   form.appendChild(zipCodeInput);
 
@@ -241,7 +242,7 @@ const renderSecondPage = () => {
     placeholder: "Város",
     id: "city",
     required: true,
-    // value: "Budapest",
+    value: "Budapest",
   });
   form.appendChild(cityInput);
 
@@ -250,7 +251,7 @@ const renderSecondPage = () => {
     placeholder: "Utca",
     id: "street",
     required: true,
-    // value: "János utca",
+    value: "János utca",
   });
   form.appendChild(streetInput);
 
@@ -259,7 +260,7 @@ const renderSecondPage = () => {
     placeholder: "Házszám",
     id: "houseNumber",
     required: true,
-    // value: "51",
+    value: "51",
   });
   form.appendChild(houseNumberInput);
 
@@ -295,5 +296,3 @@ const handleSubmitNameAndEmail = (event) => {
 // A többi oldal formjainak event listenerei a renderSecondPage és
 // renderThirdPage-ben történnek
 form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
-
-
