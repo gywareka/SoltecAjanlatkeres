@@ -128,7 +128,6 @@ const renderThirdPage = () => {
 
   // Eme lista alapján generálódnak a gombok
   const buttonValues = [
-
     {
       value: 3500,
       src: "./assets/twoperson.png",
@@ -233,7 +232,7 @@ const renderSecondPage = () => {
     placeholder: "Irányítószám",
     id: "zipCode",
     required: true,
-    value: "1354",
+    // value: "1354",
   });
   form.appendChild(zipCodeInput);
 
@@ -242,7 +241,7 @@ const renderSecondPage = () => {
     placeholder: "Város",
     id: "city",
     required: true,
-    value: "Budapest",
+    // value: "Budapest",
   });
   form.appendChild(cityInput);
 
@@ -251,7 +250,7 @@ const renderSecondPage = () => {
     placeholder: "Utca",
     id: "street",
     required: true,
-    value: "János utca",
+    // value: "János utca",
   });
   form.appendChild(streetInput);
 
@@ -260,7 +259,7 @@ const renderSecondPage = () => {
     placeholder: "Házszám",
     id: "houseNumber",
     required: true,
-    value: "51",
+    // value: "51",
   });
   form.appendChild(houseNumberInput);
 
