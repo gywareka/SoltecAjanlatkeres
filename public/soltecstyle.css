@@ -40,7 +40,8 @@ h2 {
   justify-content: center;
 }
 
-form {
+form,
+.finalContainer {
   color: black;
   display: flex;
   flex-direction: column;
@@ -257,4 +258,19 @@ a:visited {
   100% {
     width: 100%;
   }
+}
+
+.promotion_text {
+  margin: 0, 2rem;
+}
+
+.facebook_btn {
+  background-color: #316ff6;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem;
+  opacity: 1 !important;
+  border-radius: 1rem;
 }

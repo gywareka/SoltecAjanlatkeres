@@ -20,6 +20,56 @@ const createElement = (tag, options) => {
   return element;
 };
 
+function renderFinalPage(email) {
+  const container = document.getElementById("container");
+  container.replaceChildren();
+
+  const panel = document.createElement("div");
+  panel.classList.add("finalContainer");
+  container.appendChild(panel);
+
+  const title = createElement("h1", {
+    innerHTML: "Köszönjük, hogy kipróbálta a Soltec árkalkulátort!",
+  });
+  panel.appendChild(title);
+
+  const response = createElement("h3", {
+    innerHTML: `Az árajánlat elküldve a ${email} email címre!`,
+  });
+  panel.appendChild(response);
+
+  const promotion = createElement("p", {
+    innerHTML:
+      "Ha szeretne többet megtudni a Soltec termékeiről, látogasson el a <a href='https://soltec.hu/'>soltec.hu</a> oldalra.<br />Ha pedig az Online árkalkulátorunk megnyerte tetszését, ossza meg ismerőseivel Facebookon!",
+  });
+  promotion.classList.add("promotion_text");
+  panel.appendChild(promotion);
+
+  const facebook = createElement("a", {
+    href: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse",
+    innerHTML: "Megosztás Facebookon",
+    target: "_blank",
+  });
+  facebook.classList.add("facebook_btn");
+  panel.appendChild(facebook);
+}
+
+// TODO: Better User Experience, please
+function renderErrorPage(error) {
+  const container = document.getElementById("container");
+  container.replaceChildren();
+
+  const response = createElement("h1", {
+    innerHTML: "Hiba az árajánlat elküldése során:",
+  });
+  container.appendChild(response);
+
+  const errorMessage = createElement("p", {
+    innerHtml: `${error}`,
+  });
+  container.appendChild(errorMessage);
+}
+
 // Harmadik oldal submitelésekor lejátszódó event
 // Végső event
 
@@ -82,19 +132,20 @@ function renderLoadingPage() {
       .then((response) => {
         if (!response.ok) {
           console.error(response.text);
-          alert("Hiba az adatok feldolgozásával!");
+          //alert("Hiba az adatok feldolgozásával!");
+          renderErrorPage(response.text);
         } else {
           console.log(response.text);
-          alert(
-            `Árajánlat sikeresen elküldve a(z) ${userData.email} email címre.`
-          );
+          //alert(`Árajánlat sikeresen elküldve a(z) ${userData.email} email címre.`);
+          renderFinalPage(userData.email);
         }
       })
       // Ha akármi hiba lép fel a szerverrel való kommunikáció során,
       // itt fog kikötni a program
       .catch((error) => {
         console.error(error);
-        alert("Hiba a kérdőiv elküldésével. Kérlük próbálja újra!");
+        //alert("Hiba a kérdőiv elküldésével. Kérlük próbálja újra!");
+        renderErrorPage(error.message);
       });
   }, 15000);
 }
