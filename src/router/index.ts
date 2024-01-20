@@ -83,6 +83,7 @@ router.get("/visszajelzes/:userId", async (req, res) => {
         subject: "Árajánlat elfogadva",
         text: `<p>${user.lastName} ${user.firstName} elfogadta a számára generált árajánlatot</p>
               <p>Ezen az email címen tudja felvenni vele a kapcsolatot: ${user.email}</p>
+              <p>Ez a telepítési cím: ${user.installationLocation}
               <p>Mellékletként szerepel az ügyfél számára elküldött árajánlat.`,
         attachments: [
           {

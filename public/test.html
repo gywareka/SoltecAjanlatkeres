@@ -1,23 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="uimage/x-icon" href="/assets/favicon.ico" />
-    <link rel="stylesheet" href="teststyles.css" />
-    <script defer src="test.js" type="text/javascript"></script>
-    <title>Soltec ajánlatkérés</title>
+    <meta
+      property="og:url"
+      content="https://soltecajanlatkeresapi.onrender.com"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Soltec Árkalkulátor" />
+    <meta property="og:description" content="Árkalkulátor" />
+    <meta
+      property="og:image"
+      content="	https://soltecajanlatkeresapi.onrender.com/assets/removegblightbulb.png"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      .header {
+        background-color: #eaeaea;
+        display: flex;
+        justify-items: start;
+        height: 8vh;
+        min-height: 80px;
+      }
+      .logo {
+        padding: 1rem;
+        height: 100%;
+      }
+      .logo img {
+        height: 100%;
+      }
+
+      body {
+        background-image: url(assets/bg4.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .container {
+        display: flex;
+        height: 88vh;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+      .form {
+        color: black;
+        display: flex;
+        border-radius: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: 80%;
+        backdrop-filter: blur(5px);
+        background: #eaeaea80;
+      }
+
+      #facebook_post_btn {
+        border: solid 1px black;
+        background-color: #0338aa;
+      }
+    </style>
+    <title>Visszajelzés - Soltec Kft.</title>
   </head>
-  <body onload="timedText()">
-    <div class="container">
-      <div class="text">
-        <h1 id="text">Generating roof allocation</h1>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="https://www.soltec.hu"
+          ><img src="assets/logo_300dpi-removebg-preview.png"
+        /></a>
       </div>
-      <div class="loading">
-        <div class="line-box">
-          <div class="line"></div>
+    </header>
+    <main>
+      <div id="fb-root"></div>
+      <div class="container">
+        <div class="form">
+          <h1>Köszönjük szépen a visszajelzését!</h1>
+          <br />
+          <h2>
+            Ezt az oldalt nyugodtan bezárhatja, a munkatársunk hamarosan
+            felveszi önnel a kapcsolatot.
+          </h2>
+        </div>
+        <div
+          class="fb-share-button"
+          data-href="https://soltecajanlatkeresapi.onrender.com/"
+          data-layout=""
+          data-size=""
+        >
+          <a
+            target="_blank"
+            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse"
+            class="fb-xfbml-parse-ignore"
+            >Megosztás</a
+          >
         </div>
       </div>
-    </div>
+    </main>
+
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v18.0&appId=891532085610564"
+      nonce="LaxS7JGp"
+    ></script>
   </body>
 </html>
+
