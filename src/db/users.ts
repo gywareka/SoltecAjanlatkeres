@@ -1,9 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 export interface UserType {
   firstName: string;
   lastName: string;
   email: string;
+  phone: number;
   installationLocation: {
     zipCode: number;
     city: string;
@@ -17,6 +18,7 @@ const UserSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
+  phone: { type: Number, required: true },
   installationLocation: {
     zipCode: { type: Number, required: true },
     city: { type: String, required: true },
@@ -27,7 +29,7 @@ const UserSchema = new mongoose.Schema({
   offerAccepted: { type: Boolean, default: false },
 });
 
-export const UserModel = mongoose.model("User", UserSchema);
+export const UserModel = mongoose.model('User', UserSchema);
 
 export const getUsers = () => UserModel.find();
 
