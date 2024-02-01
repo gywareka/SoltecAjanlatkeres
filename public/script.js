@@ -1,13 +1,14 @@
-const form = document.querySelector("form");
+const form = document.querySelector('form');
 
 let userData = {
-  firstName: "",
-  lastName: "",
-  email: "",
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
   installationLocation: {
     zipCode: 0,
-    city: "",
-    street: "",
+    city: '',
+    street: '',
     houseNumber: 0,
   },
   consumption: 0,
@@ -21,50 +22,50 @@ const createElement = (tag, options) => {
 };
 
 function renderFinalPage(email) {
-  const container = document.getElementById("container");
+  const container = document.getElementById('container');
   container.replaceChildren();
 
-  const panel = document.createElement("div");
-  panel.classList.add("finalContainer");
+  const panel = document.createElement('div');
+  panel.classList.add('finalContainer');
   container.appendChild(panel);
 
-  const title = createElement("h1", {
-    innerHTML: "Köszönjük, hogy kipróbálta a Soltec árkalkulátort!",
+  const title = createElement('h1', {
+    innerHTML: 'Köszönjük, hogy kipróbálta a Soltec árkalkulátort!',
   });
   panel.appendChild(title);
 
-  const response = createElement("h3", {
+  const response = createElement('h3', {
     innerHTML: `Az árajánlat elküldve a ${email} email címre!`,
   });
   panel.appendChild(response);
 
-  const promotion = createElement("p", {
+  const promotion = createElement('p', {
     innerHTML:
       "Ha szeretne többet megtudni a Soltec termékeiről, látogasson el a <a href='https://soltec.hu/'>soltec.hu</a> oldalra.<br />Ha pedig az Online árkalkulátorunk megnyerte tetszését, ossza meg ismerőseivel Facebookon!",
   });
-  promotion.classList.add("promotion_text");
+  promotion.classList.add('promotion_text');
   panel.appendChild(promotion);
 
-  const facebook = createElement("a", {
-    href: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse",
-    innerHTML: "Megosztás Facebookon",
-    target: "_blank",
+  const facebook = createElement('a', {
+    href: 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse',
+    innerHTML: 'Megosztás Facebookon',
+    target: '_blank',
   });
-  facebook.classList.add("facebook_btn");
+  facebook.classList.add('facebook_btn');
   panel.appendChild(facebook);
 }
 
 // TODO: Better User Experience, please
 function renderErrorPage(error) {
-  const container = document.getElementById("container");
+  const container = document.getElementById('container');
   container.replaceChildren();
 
-  const response = createElement("h1", {
-    innerHTML: "Hiba az árajánlat elküldése során:",
+  const response = createElement('h1', {
+    innerHTML: 'Hiba az árajánlat elküldése során:',
   });
   container.appendChild(response);
 
-  const errorMessage = createElement("p", {
+  const errorMessage = createElement('p', {
     innerHtml: `${error}`,
   });
   container.appendChild(errorMessage);
@@ -77,54 +78,54 @@ function renderLoadingPage() {
   // az elemek létrehozása
 
   // Az harmadik oldal elementjeinek kitörlése
-  const container = document.getElementById("container");
+  const container = document.getElementById('container');
   container.replaceChildren();
 
   // A loadink oldal elementjeinek létrehozása
-  const form = document.createElement("form");
+  const form = document.createElement('form');
   container.appendChild(form);
 
   //  Az Loading Page 1. divje
-  const Loading1Div = document.createElement("div");
-  Loading1Div.classList.add("text");
+  const Loading1Div = document.createElement('div');
+  Loading1Div.classList.add('text');
   form.appendChild(Loading1Div);
 
   //  A szöveg ami változik
-  const LoadingPageText = createElement("h1", {
-    innerHTML: "Generating roof allocation",
+  const LoadingPageText = createElement('h1', {
+    innerHTML: 'Generating roof allocation',
   });
   Loading1Div.appendChild(LoadingPageText);
 
-  const Loading2Div = document.createElement("div");
-  Loading2Div.classList.add("loading");
+  const Loading2Div = document.createElement('div');
+  Loading2Div.classList.add('loading');
   form.appendChild(Loading2Div);
 
-  const Loading3Div = document.createElement("div");
-  Loading3Div.classList.add("line-box");
+  const Loading3Div = document.createElement('div');
+  Loading3Div.classList.add('line-box');
   Loading2Div.appendChild(Loading3Div);
 
-  const Loading4Div = document.createElement("div");
-  Loading4Div.classList.add("line");
+  const Loading4Div = document.createElement('div');
+  Loading4Div.classList.add('line');
   Loading3Div.appendChild(Loading4Div);
 
-  let x = document.querySelector("h1");
+  let x = document.querySelector('h1');
 
   // Only changed while testing
   // First tiemout was 10000, second was 20000
   setTimeout(() => {
-    x.innerHTML = "Dimensioning inverter";
+    x.innerHTML = 'Dimensioning inverter';
   }, 5000);
   setTimeout(() => {
-    x.innerHTML = "Calculating preliminary offer";
+    x.innerHTML = 'Calculating preliminary offer';
   }, 10000);
   setTimeout(() => {
-    x.innerHTML = "Köszönjük, hogy minket választott!";
+    x.innerHTML = 'Köszönjük, hogy minket választott!';
 
     // Fetch API hívás
-    fetch("/", {
-      method: "POST",
+    fetch('/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
     })
@@ -160,89 +161,89 @@ const handleSubmitConsumption = (event) => {
 
 const renderThirdPage = () => {
   // Az második oldal elementjeinek kitörlése
-  const container = document.getElementById("container");
+  const container = document.getElementById('container');
   container.replaceChildren();
 
   // A harmadik oldal elementjeinek létrehozása
-  const form = document.createElement("form");
+  const form = document.createElement('form');
   container.appendChild(form);
 
   // A harmadik oldal cime
-  const ThirdTitle = createElement("h1", {
-    innerHTML: "Adja meg az éves átlag fogyasztását",
+  const ThirdTitle = createElement('h1', {
+    innerHTML: 'Adja meg az éves átlag fogyasztását',
   });
   form.appendChild(ThirdTitle);
 
   // A harmadik oldal gombokat tartalmazó divje
-  const ButtonDiv = document.createElement("div");
+  const ButtonDiv = document.createElement('div');
   form.appendChild(ButtonDiv);
-  ButtonDiv.classList.add("ThirdPage");
+  ButtonDiv.classList.add('ThirdPage');
 
   // Eme lista alapján generálódnak a gombok
   const buttonValues = [
     {
       value: 3500,
-      src: "./assets/twoperson.png",
+      src: './assets/twoperson.png',
     },
     {
       value: 5000,
-      src: "./assets/family.png",
+      src: './assets/family.png',
     },
     {
       value: 7000,
-      src: "./assets/bigfamily.png",
+      src: './assets/bigfamily.png',
     },
   ];
 
   // Végigmegy a buttonValues lista összes elemén, és létrehoz
   // egy elemet az adatok alapján
   for (const btn of buttonValues) {
-    const button = createElement("button", {
-      type: "radio",
+    const button = createElement('button', {
+      type: 'radio',
       value: btn.value,
       id: btn.value,
     });
-    button.classList.add("cons-btn");
+    button.classList.add('cons-btn');
     ButtonDiv.appendChild(button);
 
-    button.addEventListener("click", (event) => {
+    button.addEventListener('click', (event) => {
       event.preventDefault();
 
-      const prevSelected = document.querySelector(".selected");
+      const prevSelected = document.querySelector('.selected');
       if (prevSelected) {
-        prevSelected.classList.remove("selected");
+        prevSelected.classList.remove('selected');
       }
 
       document
         .querySelector(`label[for="${event.target.value}"]`)
-        .classList.add("selected");
+        .classList.add('selected');
 
       userData.consumption = Number(event.target.value);
     });
 
-    const label = createElement("label", {
+    const label = createElement('label', {
       htmlFor: btn.value,
       textContent: `${btn.value} kWh`,
     });
-    label.classList.add("cons-label");
+    label.classList.add('cons-label');
     ButtonDiv.appendChild(label);
 
-    const image = createElement("img", {
+    const image = createElement('img', {
       src: btn.src,
     });
-    image.classList.add("ThirdPageImg");
+    image.classList.add('ThirdPageImg');
     label.appendChild(image);
   }
 
   // A harmadik oldal Tovább gombja
-  const submitButton3 = createElement("input", {
-    type: "submit",
-    value: "Tovább",
+  const submitButton3 = createElement('input', {
+    type: 'submit',
+    value: 'Tovább',
   });
-  submitButton3.classList.add("submit");
+  submitButton3.classList.add('submit');
   form.appendChild(submitButton3);
 
-  form.addEventListener("submit", (event) => handleSubmitConsumption(event));
+  form.addEventListener('submit', (event) => handleSubmitConsumption(event));
 };
 
 // Második oldal submitelésekor lejátszódó event
@@ -253,10 +254,10 @@ const handleSubmitLocation = (event) => {
   // TODO zipCode és houseNumber szám, city és street string
 
   userData.installationLocation = {
-    zipCode: Number(document.getElementById("zipCode").value),
-    city: document.getElementById("city").value,
-    street: document.getElementById("street").value,
-    houseNumber: Number(document.getElementById("houseNumber").value),
+    zipCode: Number(document.getElementById('zipCode').value),
+    city: document.getElementById('city').value,
+    street: document.getElementById('street').value,
+    houseNumber: Number(document.getElementById('houseNumber').value),
   };
 
   //console.table(userData.installationLocation);
@@ -266,73 +267,74 @@ const handleSubmitLocation = (event) => {
 
 const renderSecondPage = () => {
   // Az első oldal elementjeinek kitörlése
-  const container = document.getElementById("container");
+  const container = document.getElementById('container');
   container.replaceChildren();
 
   // A második oldal elementjeinek létrehozása
-  const form = createElement("form");
+  const form = createElement('form');
   container.appendChild(form);
 
   // A második oldal címe
-  const title = createElement("h1", {
-    innerHTML: "Adja meg a telepítési címet",
+  const title = createElement('h1', {
+    innerHTML: 'Adja meg a telepítési címet',
   });
   form.appendChild(title);
 
   // A második oldal első inputja (irányitószám)
-  const zipCodeInput = createElement("input", {
-    placeholder: "Irányítószám",
-    id: "zipCode",
+  const zipCodeInput = createElement('input', {
+    placeholder: 'Irányítószám',
+    id: 'zipCode',
     required: true,
     // value: "1354",
   });
   form.appendChild(zipCodeInput);
 
   // A másosódik oldal második inputja (Város)
-  const cityInput = createElement("input", {
-    placeholder: "Város",
-    id: "city",
+  const cityInput = createElement('input', {
+    placeholder: 'Város',
+    id: 'city',
     required: true,
     // value: "Budapest",
   });
   form.appendChild(cityInput);
 
   // A második oldal harmadik inputja (Utca)
-  const streetInput = createElement("input", {
-    placeholder: "Utca",
-    id: "street",
+  const streetInput = createElement('input', {
+    placeholder: 'Utca',
+    id: 'street',
     required: true,
     // value: "János utca",
   });
   form.appendChild(streetInput);
 
   // A második oldal negyedik inputja (Házszám)
-  const houseNumberInput = createElement("input", {
-    placeholder: "Házszám",
-    id: "houseNumber",
+  const houseNumberInput = createElement('input', {
+    placeholder: 'Házszám',
+    id: 'houseNumber',
     required: true,
     // value: "51",
   });
   form.appendChild(houseNumberInput);
 
   // A második oldal tovább gombja
-  const submitButton2 = createElement("input", {
-    type: "submit",
-    value: "Tovább",
+  const submitButton2 = createElement('input', {
+    type: 'submit',
+    value: 'Tovább',
   });
-  submitButton2.classList.add("submit");
+  submitButton2.classList.add('submit');
   form.appendChild(submitButton2);
 
-  form.addEventListener("submit", (event) => handleSubmitLocation(event));
+  form.addEventListener('submit', (event) => handleSubmitLocation(event));
 };
 
 // Első oldal submitelésekor lejátszódó event
 const handleSubmitNameAndEmail = (event) => {
   event.preventDefault();
 
-  userData.firstName = document.getElementById("firstname").value;
-  userData.lastName = document.getElementById("lastname").value;
-  userData.email = document.getElementById("email").value;
+  userData.firstName = document.getElementById('firstname').value;
+  userData.lastName = document.getElementById('lastname').value;
+  userData.email = document.getElementById('email').value;
+  userData.phone = document.getElementById('phone').value;
 
   //   console.log(`
   //     Vezetéknév: ${userData.lastName}
@@ -346,4 +348,4 @@ const handleSubmitNameAndEmail = (event) => {
 // Az első oldal formja megkapja az event listenert
 // A többi oldal formjainak event listenerei a renderSecondPage és
 // renderThirdPage-ben történnek
-form.addEventListener("submit", (event) => handleSubmitNameAndEmail(event));
+form.addEventListener('submit', (event) => handleSubmitNameAndEmail(event));
