@@ -14,14 +14,14 @@
       property="og:image"
       content="	https://soltecajanlatkeresapi.onrender.com/assets/removegblightbulb.png"
     />
-    <style>
+    <style type="text/css">
       *,
       *::before,
       *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Barlow Condensed", sans-serif;
+        font-family: 'Barlow Condensed', sans-serif;
       }
       .header {
         background-color: #eaeaea;
@@ -39,7 +39,7 @@
       }
 
       body {
-        background-image: url("../public/assets/bg4.jpg");
+        background-image: url('../public/assets/bg4.jpg');
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -65,11 +65,6 @@
         backdrop-filter: blur(5px);
         background: #eaeaea80;
       }
-
-      #facebook_post_btn {
-        border: solid 1px black;
-        background-color: #0338aa;
-      }
     </style>
     <title>Visszajelzés - Soltec Kft.</title>
   </head>
@@ -84,7 +79,6 @@
       </div>
     </header>
     <main>
-      <div id="fb-root"></div>
       <div class="container">
         <div class="form">
           <h1>Köszönjük szépen a visszajelzését!</h1>
@@ -94,28 +88,7 @@
             felveszi önnel a kapcsolatot.
           </h2>
         </div>
-        <div
-          class="fb-share-button"
-          data-href="https://soltecajanlatkeresapi.onrender.com/"
-          data-layout=""
-          data-size=""
-        >
-          <a
-            target="_blank"
-            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsoltecajanlatkeresapi.onrender.com%2F&amp;src=sdkpreparse"
-            class="fb-xfbml-parse-ignore"
-            >Megosztás</a
-          >
-        </div>
       </div>
     </main>
-
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v18.0&appId=891532085610564"
-      nonce="LaxS7JGp"
-    ></script>
   </body>
 </html>

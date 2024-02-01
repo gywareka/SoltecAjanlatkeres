@@ -32,11 +32,13 @@ function renderFinalPage(email) {
   const title = createElement('h1', {
     innerHTML: 'Köszönjük, hogy kipróbálta a Soltec árkalkulátort!',
   });
+  title.classList.add('final_heading');
   panel.appendChild(title);
 
-  const response = createElement('h3', {
+  const response = createElement('h2', {
     innerHTML: `Az árajánlat elküldve a ${email} email címre!`,
   });
+  response.classList.add('final_subheading');
   panel.appendChild(response);
 
   const promotion = createElement('p', {
