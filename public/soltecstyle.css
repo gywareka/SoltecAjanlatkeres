@@ -70,7 +70,7 @@ form,
 }
 form h1 {
   font-size: 2.5rem;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   margin-top: 3%;
 }
 .submit {
@@ -79,8 +79,8 @@ form h1 {
   font-size: 1.3rem;
   font-weight: bold;
   width: 30%;
-  margin-top: 0.1%;
-  margin-bottom: 3%;
+  margin-top: 0.01%;
+  margin-bottom: 4%;
   transition: all 0.35s;
   opacity: 1 !important;
 }
