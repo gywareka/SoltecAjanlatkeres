@@ -39,7 +39,7 @@
       }
 
       body {
-        background-image: url(bg4.jpg);
+        background-image: url('/assets/bg4.jpg');
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -65,12 +65,6 @@
         backdrop-filter: blur(5px);
         background: #eaeaea80;
       }
-
-      body {
-        background-image: url('../public/assets/bg4.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
     </style>
     <title>Visszajelzés - Soltec Kft.</title>
   </head>
@@ -78,14 +72,14 @@
     <header class="header">
       <div class="logo">
         <a href="https://www.soltec.hu"
-          ><img src="logo_300dpi-removebg-preview.png" />
+          ><img src="/assets/logo_300dpi-removebg-preview.png" />
         </a>
       </div>
     </header>
     <main>
       <div class="container">
         <div class="form">
-          <p><%= locals.message %></p>
+          <h1><%= locals.message %><h1/>
         </div>
       </div>
     </main>
