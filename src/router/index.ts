@@ -35,9 +35,13 @@ router.post('/', async (req: Request, res: Response) => {
       to: userData.email,
       subject: 'Soltec Árajánlat',
       text: `<h3>Tisztelt ${userData.lastName} ${userData.firstName}</h3>
-            <p>Mellékelten küldjük az ön árajánlatát. Ha előzetes ajánlatunk megnyerte tetszését, kérjük kattintson ide:</p>
+            <p>Köszönjük, hogy megtisztelte cégünket érdeklődésével. Az Ön által megadott adatok alapján 
+            mellékelten küldjük az Ön előzetes árajánlatát. Ha ajánlatunk nagyságrendileg 
+            megnyerte tetszését, kérjük kattintson ide:</p>
             <a href="http://localhost:3000/visszajelzes/${user._id}">ÉRDEKEL</a>
-            <p>és munkatársunk felveszi önnel a kapcsolatot</p>`,
+            <p>Az "ÉRDEKEL" gomb megnyomásával adatait feldolgozzuk és ezt követően munkatársunk 
+            felveszi önnel a kapcsolatot. </p> 
+            <p>Amennyiben az "ÉRDEKEL" gombra 7 napon belül nem kattint, úgy az Ön által megadott adatokat rendszerünk törli. </p>`,
       attachments: [
         {
           filename: 'arajanlat.pdf',
