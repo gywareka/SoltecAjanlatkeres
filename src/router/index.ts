@@ -38,7 +38,7 @@ router.post('/', async (req: Request, res: Response) => {
             <p>Köszönjük, hogy megtisztelte cégünket érdeklődésével. Az Ön által megadott adatok alapján 
             mellékelten küldjük az Ön előzetes árajánlatát. Ha ajánlatunk nagyságrendileg 
             megnyerte tetszését, kérjük kattintson ide:</p>
-            <a href="https://soltecajanlatkeresapi.onrender.com/visszajelzes/${user._id}">ÉRDEKEL</a>
+            <a href="https://soltecajanlatkeres.onrender.com/visszajelzes/${user._id}">ÉRDEKEL</a>
             <p>Az "ÉRDEKEL" gomb megnyomásával adatait feldolgozzuk és ezt követően munkatársunk 
             felveszi önnel a kapcsolatot. </p> 
             <p>Amennyiben az "ÉRDEKEL" gombra 7 napon belül nem kattint, úgy az Ön által megadott adatokat rendszerünk törli. </p>`,
