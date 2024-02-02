@@ -65,6 +65,8 @@
               id="Privacy"
               class="checkbox"
               required="required"
+              oninvalid="this.setCustomValidity('Kérjük fogadja el az adatkezelési tájékoztatót és a felhasználási feltételeket.')"
+              oninput="this.setCustomValidity('')"
             />
             <label for="Privacy"
               >Elolvastam és elfogadom az
