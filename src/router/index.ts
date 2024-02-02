@@ -31,7 +31,7 @@ router.post('/', async (req: Request, res: Response) => {
 
     //TODO Change link when in production
     const mailOptions = {
-      from: 'info@soltec.hu',
+      from: '"Soltec Ajánlatkérés" <info@soltec.hu>',
       to: userData.email,
       subject: 'Soltec Árajánlat',
       text: `<h3>Tisztelt ${userData.lastName} ${userData.firstName}</h3>
@@ -86,8 +86,8 @@ router.get('/visszajelzes/:userId', async (req, res) => {
 
       // TODO Change to email address when deploying
       const mailOptions = {
-        from: 'info@soltec.hu',
-        to: 'ervin.sjt@gmail.com',
+        from: '"Soltec Ajánlatkérés" <info@soltec.hu>',
+        to: 'tsimonyi@soltec.hu',
         subject: 'Árajánlat elfogadva',
         text: `<p>${user.lastName} ${user.firstName} elfogadta a számára generált árajánlatot</p>
               <p>Ezen az email címen tudja felvenni vele a kapcsolatot: ${user.email}</p>
