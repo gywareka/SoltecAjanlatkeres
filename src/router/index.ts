@@ -69,14 +69,16 @@ router.get('/visszajelzes/:userId', async (req, res) => {
       // Process the acceptance (notify the firm)
       await processPriceOfferAcceptance(user._id);
 
-      createPdfDocument({
+      const userData: UserType = {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
         phone: user.phone,
         installationLocation: user.installationLocation,
         consumption: user.consumption,
-      });
+      };
+
+      await generatePdf(userData);
 
       // TODO Change to email address when deploying
       const mailOptions = {
