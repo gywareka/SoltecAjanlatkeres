@@ -411,13 +411,19 @@ a:visited {
   display: flex;
   align-items: center;
 }
+.finalContainer {
+  width: 90%;
+}
 h1 {
   font-size: 1rem;
+  line-height: 1;
+  word-wrap: break-word;
 }
 h3 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .promotion_text {
-  margin: 0, 0.8rem;
+  margin: 5px, 0.5rem;
+  word-wrap: break-word;
 }
 }
